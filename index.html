@@ -9,6 +9,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
+  <!-- FAVICON VECTORIAL EMBEBIDO (CERO ERRORES 404 EN CONSOLA) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23437A98'/%3E%3Cg fill='%23FFFFFF'%3E%3Cpath d='M32 34c-6 0-10 5-9 10 1 4 5 5 9 4 4 1 8 0 9-4 1-5-3-10-9-10z'/%3E%3Ccircle cx='19' cy='27' r='4'/%3E%3Ccircle cx='27' cy='20' r='4'/%3E%3Ccircle cx='37' cy='20' r='4'/%3E%3Ccircle cx='45' cy='27' r='4'/%3E%3C/g%3E%3C/svg%3E">
+
   <!-- PRELOAD DE IMÁGENES LOCALES WEBP -->
   <link rel="preload" as="image" href="./srvet.webp">
   <link rel="preload" as="image" href="./portadasr.webp">
@@ -61,6 +64,7 @@
       --radius-card: 24px;
       --radius-pill: 9999px;
       --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-snappy: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     * {
@@ -93,7 +97,7 @@
     }
 
     /* ==========================================================================
-       2. FONDO PLENO #437A98 + ANIMALES BLANCOS VECTORIALES EN MOVIMIENTO SUAVE
+       2. FONDO PLENO #437A98 + CAPA GPU DE ANIMALES BLANCOS (0% REPAINT)
        ========================================================================== */
     .bg-solid-canvas {
       position: fixed;
@@ -103,7 +107,6 @@
       background-color: var(--brand-blue);
     }
 
-    /* Velo de luz cenital muy sutil (sin oscurecer costados ni hacer degradé de izq a der) */
     .bg-top-luminance {
       position: fixed;
       top: 0;
@@ -111,60 +114,72 @@
       transform: translateX(-50%);
       width: 100vw;
       max-width: 720px;
-      height: 300px;
+      height: 280px;
       z-index: 1;
       pointer-events: none;
-      background: radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.03) 55%, transparent 100%);
+      background: radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 55%, transparent 100%);
     }
 
-    /* Patrón amplio 320x320 de perros, gatos y huellas blancas bien proporcionadas */
-    .bg-animals-pattern {
+    /* Viewport fijo y track sobredimensionado animado por GPU (translate3d) */
+    .bg-animals-viewport {
       position: fixed;
       inset: 0;
       z-index: 2;
+      overflow: hidden;
       pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cg fill='%23FFFFFF' fill-opacity='0.065' stroke='%23FFFFFF' stroke-opacity='0.20' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3C!-- Gato sentado (arriba izquierda) --%3E%3Cpath d='M58 54 L52 32 L68 43 Q75 41 82 43 L98 32 L92 54 C97 62 95 72 88 78 C95 90 96 108 90 118 L60 118 C54 108 55 90 62 78 C55 72 53 62 58 54 Z'/%3E%3Cpath fill='none' d='M90 115 C107 115 113 100 106 90 C102 85 97 89 100 94'/%3E%3C!-- Rostro felino minimalista (arriba derecha) --%3E%3Cpath d='M215 62 L210 38 L228 50 Q240 47 252 50 L270 38 L265 62 C272 74 266 90 240 92 C214 90 208 74 215 62 Z'/%3E%3Cpath fill='none' d='M202 70 L218 72 M201 78 L218 77 M278 70 L262 72 M279 78 L262 77'/%3E%3Cpath fill='none' d='M225 68 Q230 64 235 68 M245 68 Q250 64 255 68'/%3E%3C!-- Perro alegre de perfil (abajo derecha) --%3E%3Cpath d='M225 190 C234 188 242 192 246 198 L262 200 C267 201 268 208 263 211 L249 213 C247 222 245 232 246 244 L248 268 C248 273 241 273 240 268 L238 250 C228 253 216 253 208 248 L205 268 C204 273 197 273 197 268 L198 244 C191 240 186 232 186 223 C176 218 172 206 178 198 C182 204 185 212 192 215 C202 212 212 208 216 200 C217 194 220 191 225 190 Z'/%3E%3Cpath d='M226 196 C219 198 216 210 221 218 C225 222 231 217 231 209 C231 202 229 196 226 196 Z'/%3E%3C!-- Huella 1 (abajo izquierda) --%3E%3Cg transform='translate(80,242) rotate(-14)'%3E%3Cpath d='M0 -4 C-10 -4 -16 5 -14 13 C-12 19 -5 20 0 18 C5 20 12 19 14 13 C16 5 10 -4 0 -4 Z'/%3E%3Ccircle cx='-16' cy='-11' r='4.5'/%3E%3Ccircle cx='-6' cy='-18' r='4.5'/%3E%3Ccircle cx='6' cy='-18' r='4.5'/%3E%3Ccircle cx='16' cy='-11' r='4.5'/%3E%3C/g%3E%3C!-- Huella 2 (centro) --%3E%3Cg transform='translate(154,148) rotate(16) scale(0.72)'%3E%3Cpath d='M0 -4 C-10 -4 -16 5 -14 13 C-12 19 -5 20 0 18 C5 20 12 19 14 13 C16 5 10 -4 0 -4 Z'/%3E%3Ccircle cx='-16' cy='-11' r='4.5'/%3E%3Ccircle cx='-6' cy='-18' r='4.5'/%3E%3Ccircle cx='6' cy='-18' r='4.5'/%3E%3Ccircle cx='16' cy='-11' r='4.5'/%3E%3C/g%3E%3C!-- Destellos sutiles --%3E%3Cpath stroke='none' fill-opacity='0.18' d='M152 54 L154 60 L160 62 L154 64 L152 70 L150 64 L144 62 L150 60 Z'/%3E%3Cpath stroke='none' fill-opacity='0.16' d='M282 138 L283.5 142.5 L288 144 L283.5 145.5 L282 150 L280.5 145.5 L276 144 L280.5 142.5 Z'/%3E%3Ccircle cx='34' cy='168' r='2.5' stroke='none' fill-opacity='0.18'/%3E%3Ccircle cx='146' cy='278' r='2.5' stroke='none' fill-opacity='0.18'/%3E%3C/g%3E%3C/svg%3E");
+      contain: strict;
+    }
+
+    .bg-animals-track {
+      position: absolute;
+      top: 0;
+      left: -320px;
+      width: calc(100% + 320px);
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cg fill='%23FFFFFF' fill-opacity='0.065' stroke='%23FFFFFF' stroke-opacity='0.20' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M58 54 L52 32 L68 43 Q75 41 82 43 L98 32 L92 54 C97 62 95 72 88 78 C95 90 96 108 90 118 L60 118 C54 108 55 90 62 78 C55 72 53 62 58 54 Z'/%3E%3Cpath fill='none' d='M90 115 C107 115 113 100 106 90 C102 85 97 89 100 94'/%3E%3Cpath d='M215 62 L210 38 L228 50 Q240 47 252 50 L270 38 L265 62 C272 74 266 90 240 92 C214 90 208 74 215 62 Z'/%3E%3Cpath fill='none' d='M202 70 L218 72 M201 78 L218 77 M278 70 L262 72 M279 78 L262 77'/%3E%3Cpath fill='none' d='M225 68 Q230 64 235 68 M245 68 Q250 64 255 68'/%3E%3Cpath d='M225 190 C234 188 242 192 246 198 L262 200 C267 201 268 208 263 211 L249 213 C247 222 245 232 246 244 L248 268 C248 273 241 273 240 268 L238 250 C228 253 216 253 208 248 L205 268 C204 273 197 273 197 268 L198 244 C191 240 186 232 186 223 C176 218 172 206 178 198 C182 204 185 212 192 215 C202 212 212 208 216 200 C217 194 220 191 225 190 Z'/%3E%3Cpath d='M226 196 C219 198 216 210 221 218 C225 222 231 217 231 209 C231 202 229 196 226 196 Z'/%3E%3Cg transform='translate(80,242) rotate(-14)'%3E%3Cpath d='M0 -4 C-10 -4 -16 5 -14 13 C-12 19 -5 20 0 18 C5 20 12 19 14 13 C16 5 10 -4 0 -4 Z'/%3E%3Ccircle cx='-16' cy='-11' r='4.5'/%3E%3Ccircle cx='-6' cy='-18' r='4.5'/%3E%3Ccircle cx='6' cy='-18' r='4.5'/%3E%3Ccircle cx='16' cy='-11' r='4.5'/%3E%3C/g%3E%3Cg transform='translate(154,148) rotate(16) scale(0.72)'%3E%3Cpath d='M0 -4 C-10 -4 -16 5 -14 13 C-12 19 -5 20 0 18 C5 20 12 19 14 13 C16 5 10 -4 0 -4 Z'/%3E%3Ccircle cx='-16' cy='-11' r='4.5'/%3E%3Ccircle cx='-6' cy='-18' r='4.5'/%3E%3Ccircle cx='6' cy='-18' r='4.5'/%3E%3Ccircle cx='16' cy='-11' r='4.5'/%3E%3C/g%3E%3Cpath stroke='none' fill-opacity='0.18' d='M152 54 L154 60 L160 62 L154 64 L152 70 L150 64 L144 62 L150 60 Z'/%3E%3Cpath stroke='none' fill-opacity='0.16' d='M282 138 L283.5 142.5 L288 144 L283.5 145.5 L282 150 L280.5 145.5 L276 144 L280.5 142.5 Z'/%3E%3Ccircle cx='34' cy='168' r='2.5' stroke='none' fill-opacity='0.18'/%3E%3Ccircle cx='146' cy='278' r='2.5' stroke='none' fill-opacity='0.18'/%3E%3C/g%3E%3C/svg%3E");
       background-size: 320px 320px;
       background-repeat: repeat;
-      animation: smoothAnimalDrift 36s linear infinite;
-      will-change: background-position;
+      animation: gpuAnimalDrift 34s linear infinite;
+      will-change: transform;
     }
 
-    @keyframes smoothAnimalDrift {
-      0%   { background-position: 0px 0px; }
-      100% { background-position: 320px 0px; }
+    @keyframes gpuAnimalDrift {
+      0%   { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(320px, 0, 0); }
     }
 
-    /* Partículas luminosas ambientales flotando con física */
+    /* Partículas luminosas ambientales (renderizadas en Web Worker / OffscreenCanvas) */
     #ambientDustCanvas {
       position: fixed;
       inset: 0;
+      width: 100%;
+      height: 100%;
       z-index: 3;
       pointer-events: none;
     }
 
     /* ==========================================================================
-       3. KEYFRAMES DE MOVIMIENTO CONTINUO Y REFLEJOS DE LUZ (NIVEL AWWWARDS)
+       3. KEYFRAMES DE MOVIMIENTO CONTINUO Y REFLEJOS DE LUZ
        ========================================================================== */
     @keyframes slowVitalityFloat {
-      0%   { transform: translateY(0px) scale(1); }
-      50%  { transform: translateY(-4px) scale(1.016); }
-      100% { transform: translateY(0px) scale(1); }
+      0%   { transform: translate3d(0, 0, 0) scale(1); }
+      50%  { transform: translate3d(0, -4px, 0) scale(1.016); }
+      100% { transform: translate3d(0, 0, 0) scale(1); }
     }
 
     @keyframes lightSweepDiagonal {
-      0%   { transform: translateX(-170%) skewX(-24deg); opacity: 0; }
+      0%   { transform: translate3d(-170%, 0, 0) skewX(-24deg); opacity: 0; }
       12%  { opacity: 0.72; }
-      32%  { transform: translateX(240%) skewX(-24deg); opacity: 0; }
-      100% { transform: translateX(240%) skewX(-24deg); opacity: 0; }
+      32%  { transform: translate3d(240%, 0, 0) skewX(-24deg); opacity: 0; }
+      100% { transform: translate3d(240%, 0, 0) skewX(-24deg); opacity: 0; }
     }
 
     @keyframes organicWave {
-      0%   { transform: translateY(0px) rotate(0deg) skewY(0deg); }
-      25%  { transform: translateY(-3.5px) rotate(1deg) skewY(0.6deg); }
-      50%  { transform: translateY(1.5px) rotate(-0.8deg) skewY(-0.5deg); }
-      75%  { transform: translateY(-2px) rotate(0.6deg) skewY(0.3deg); }
-      100% { transform: translateY(0px) rotate(0deg) skewY(0deg); }
+      0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
+      25%  { transform: translate3d(0, -3.5px, 0) rotate(1deg); }
+      50%  { transform: translate3d(0, 1.5px, 0) rotate(-0.8deg); }
+      75%  { transform: translate3d(0, -2px, 0) rotate(0.6deg); }
+      100% { transform: translate3d(0, 0, 0) rotate(0deg); }
     }
 
     @keyframes softWhatsappGlow {
@@ -186,16 +201,18 @@
       50%      { opacity: 0.4; transform: scale(0.8); }
     }
 
-    /* Aparición escalonada al scrollear */
+    /* Aparición ultra veloz sin demoras al scrollear */
     .reveal-block {
       opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.65s var(--ease-spring), transform 0.65s var(--ease-spring);
+      transform: translate3d(0, 10px, 0);
+      transition: opacity 0.28s var(--ease-snappy), transform 0.28s var(--ease-snappy);
+      will-change: opacity, transform;
     }
 
     .reveal-block.is-visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
+      will-change: auto;
     }
 
     /* ==========================================================================
@@ -214,7 +231,7 @@
     }
 
     /* ==========================================================================
-       5. CABECERA SIMÉTRICA: LOGO SUELTO ARRIBA -> FOTO ESTÉTICA -> CARD ACOTADA
+       5. CABECERA SIMÉTRICA: LOGO SUELTO LIMPIO -> FOTO -> CARD ACOTADA
        ========================================================================== */
     .hero-top-showcase {
       width: 100%;
@@ -222,50 +239,35 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 0;
     }
 
-    /* Logo S.R. suelto arriba de todo, grande y en blanco puro sin recuadro */
+    /* Logo S.R. blanco suelto arriba de todo, SIN reflejo recortado detrás */
     .logo-free-stage {
       width: 100%;
-      max-width: 240px;
+      max-width: 238px;
       display: flex;
       flex-direction: column;
       align-items: center;
       cursor: pointer;
       animation: slowVitalityFloat 7s ease-in-out infinite alternate;
-      margin-bottom: 18px;
+      margin-bottom: 22px;
       position: relative;
       z-index: 5;
+      will-change: transform;
     }
 
     .brand-logo-svg {
       width: 100%;
       height: auto;
       display: block;
-      filter: drop-shadow(0 8px 20px rgba(15, 34, 46, 0.25));
-      transition: transform 0.35s var(--ease-spring);
+      filter: drop-shadow(0 8px 18px rgba(15, 34, 46, 0.22));
+      transition: transform 0.32s var(--ease-spring);
     }
 
     .logo-free-stage:hover .brand-logo-svg {
-      transform: scale(1.03);
+      transform: scale(1.035);
     }
 
-    /* Reflejo sutil en cristal debajo del logo (estilo hummusdeco.html / PN.html) */
-    .logo-glass-reflection {
-      width: 100%;
-      height: 22px;
-      margin-top: -2px;
-      overflow: hidden;
-      opacity: 0.16;
-      transform: scaleY(-0.65);
-      filter: blur(0.8px);
-      mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
-      pointer-events: none;
-    }
-
-    /* Retrato de Sofía debajo del logo, centrado y simétrico superponiéndose con elegancia */
     .doctor-portrait-stage {
       position: relative;
       z-index: 6;
@@ -332,7 +334,6 @@
       animation: pulseActive 2s infinite ease-in-out;
     }
 
-    /* Primera tarjeta blanca acotada y perfectamente simétrica */
     .hero-identity-card {
       position: relative;
       z-index: 4;
@@ -340,16 +341,16 @@
       background: var(--color-bone-pure);
       border-radius: var(--radius-monument);
       border: 2px solid var(--border-light);
-      padding: 62px 22px 22px;
+      padding: 62px 20px 22px;
       box-shadow: var(--shadow-sculpture);
       overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
+      contain: layout style;
     }
 
-    /* Reflejo suave en la tarjeta de bienvenida */
     .hero-identity-card::before {
       content: '';
       position: absolute;
@@ -376,7 +377,7 @@
 
     .hero-name-title {
       font-family: var(--font-display);
-      font-size: clamp(1.5rem, 5.4vw, 1.85rem);
+      font-size: clamp(1.48rem, 5.4vw, 1.85rem);
       font-weight: 800;
       color: var(--brand-blue-night);
       line-height: 1.12;
@@ -385,14 +386,13 @@
 
     .hero-specialty-subtitle {
       font-family: var(--font-sans);
-      font-size: 0.90rem;
+      font-size: 0.88rem;
       font-weight: 700;
       color: var(--brand-blue);
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
 
-    /* Badges de credenciales con flameado armónico (organicWave de PN.html) */
     .credentials-pills-row {
       display: flex;
       align-items: center;
@@ -400,7 +400,6 @@
       gap: 7px;
       flex-wrap: wrap;
       margin: 10px 0 14px;
-      perspective: 800px;
     }
 
     .cred-badge {
@@ -415,7 +414,6 @@
       color: var(--brand-blue-deep);
       border: 1px solid rgba(67, 122, 152, 0.20);
       box-shadow: 0 3px 8px rgba(34, 66, 84, 0.05);
-      transform-origin: center center;
       animation: organicWave 4.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
       will-change: transform;
     }
@@ -434,24 +432,35 @@
 
     .milkshake-welcome-slab {
       width: 100%;
-      background: linear-gradient(135deg, rgba(253, 238, 235, 0.72) 0%, rgba(255, 255, 255, 0.95) 100%);
-      border: 1.5px solid rgba(230, 106, 89, 0.25);
+      background: linear-gradient(135deg, rgba(253, 238, 235, 0.72) 0%, rgba(255, 255, 255, 0.96) 100%);
+      border: 1.5px solid rgba(230, 106, 89, 0.26);
       border-radius: 18px;
-      padding: 13px 16px;
+      padding: 13px 14px;
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      align-items: center;
+      gap: 4px;
     }
 
+    /* Fluid clamp + nowrap en la última palabra e ícono para que jamás quede huérfano */
     .milkshake-heading {
       font-family: var(--font-display);
-      font-size: 1.12rem;
+      font-size: clamp(0.92rem, 3.65vw, 1.12rem);
       font-weight: 700;
-      color: var(--accent-coral);
+      color: var(--accent-coral-dark);
+      line-height: 1.25;
+    }
+
+    .nowrap-tail {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+      vertical-align: bottom;
     }
 
     .milkshake-sub {
-      font-size: 0.76rem;
+      font-size: clamp(0.70rem, 2.5vw, 0.76rem);
       font-weight: 700;
       color: var(--brand-blue-deep);
       letter-spacing: 0.05em;
@@ -459,23 +468,44 @@
     }
 
     /* ==========================================================================
-       6. HERO CARD PRINCIPAL: SOLICITAR TURNO POR WHATSAPP
+       6. SISTEMA DE ICONOS EDITORIALES SVG PROFESIONALES
+       ========================================================================== */
+    .ed-icon {
+      display: inline-block;
+      flex-shrink: 0;
+      vertical-align: middle;
+    }
+
+    .ed-icon-inline {
+      width: 18px;
+      height: 18px;
+      margin-top: 1px;
+    }
+
+    .ed-icon-card {
+      width: 22px;
+      height: 22px;
+    }
+
+    /* ==========================================================================
+       7. HERO CARD PRINCIPAL: SOLICITAR TURNO POR WHATSAPP
        ========================================================================== */
     .btn-hero-whatsapp {
       background: var(--color-bone-pure);
       border: 2.5px solid #22C55E;
       border-radius: 24px;
-      padding: 20px 22px;
+      padding: 18px 20px;
       text-decoration: none;
       color: var(--text-main);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 14px;
       position: relative;
       overflow: hidden;
-      transition: all 0.28s var(--ease-spring);
+      transition: transform 0.28s var(--ease-spring), border-color 0.25s ease;
       animation: softWhatsappGlow 5s ease-in-out infinite;
+      contain: layout style;
     }
 
     .btn-hero-whatsapp::before {
@@ -508,6 +538,7 @@
       text-align: left;
       position: relative;
       z-index: 3;
+      min-width: 0;
     }
 
     .hero-wa-beacon {
@@ -534,22 +565,22 @@
 
     .hero-wa-title {
       font-family: var(--font-display);
-      font-size: clamp(1.15rem, 4vw, 1.32rem);
+      font-size: clamp(1.10rem, 4.1vw, 1.32rem);
       font-weight: 800;
       color: var(--brand-blue-night);
       line-height: 1.15;
     }
 
     .hero-wa-caption {
-      font-size: 0.82rem;
+      font-size: 0.80rem;
       font-weight: 600;
       color: var(--text-muted);
     }
 
     .wa-bubble-circle {
-      width: 52px;
-      height: 52px;
-      min-width: 52px;
+      width: 50px;
+      height: 50px;
+      min-width: 50px;
       border-radius: 50%;
       background: #22C55E;
       color: #FFFFFF;
@@ -567,26 +598,27 @@
     }
 
     .wa-bubble-circle svg {
-      width: 26px;
-      height: 26px;
+      width: 25px;
+      height: 25px;
       fill: currentColor;
     }
 
     /* ==========================================================================
-       7. TARJETA CONDICIONES & PROTOCOLO DE ATENCIÓN
+       8. TARJETA CONDICIONES & PROTOCOLO DE ATENCIÓN (UNA SOLA LÍNEA LIMPIA)
        ========================================================================== */
     .conditions-card {
       background: var(--color-bone-pure);
       border-radius: var(--radius-card);
       border: 1.5px solid var(--border-hairline);
       border-left: 6px solid var(--brand-blue);
-      padding: 22px 20px;
+      padding: 20px 18px;
       box-shadow: var(--shadow-subtle);
       display: flex;
       flex-direction: column;
       gap: 12px;
       position: relative;
       overflow: hidden;
+      contain: layout style;
     }
 
     .conditions-card::before {
@@ -607,37 +639,42 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 8px;
       border-bottom: 1.5px dashed rgba(67, 122, 152, 0.18);
-      padding-bottom: 8px;
+      padding-bottom: 10px;
       position: relative;
       z-index: 3;
     }
 
     .conditions-title {
       font-family: var(--font-display);
-      font-size: 1.05rem;
+      font-size: clamp(0.92rem, 3.5vw, 1.06rem);
       font-weight: 700;
       color: var(--brand-blue-night);
       display: flex;
       align-items: center;
       gap: 7px;
+      white-space: nowrap;
+      min-width: 0;
     }
 
     .live-clock-pill {
       font-family: var(--font-mono);
-      font-size: 0.68rem;
+      font-size: clamp(0.60rem, 2.2vw, 0.67rem);
       font-weight: 700;
-      padding: 3px 10px;
+      padding: 4px 10px;
       border-radius: var(--radius-pill);
       background: var(--brand-blue-mist);
       color: var(--brand-blue-deep);
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .condition-row {
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      font-size: 0.88rem;
+      font-size: 0.87rem;
       line-height: 1.45;
       font-weight: 600;
       color: var(--text-body);
@@ -652,18 +689,18 @@
       padding: 12px 14px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 7px;
       position: relative;
       z-index: 3;
     }
 
     .urgent-line {
-      font-size: 0.84rem;
+      font-size: 0.83rem;
       font-weight: 800;
       color: var(--accent-coral-dark);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 9px;
     }
 
     .turn-instructions-box {
@@ -672,17 +709,23 @@
       padding: 12px 14px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
       font-size: 0.82rem;
-      line-height: 1.4;
+      line-height: 1.42;
       font-weight: 600;
       color: var(--brand-blue-deep);
       position: relative;
       z-index: 3;
     }
 
+    .turn-instruction-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+
     /* ==========================================================================
-       8. PORTADA LIMPIA (portadasr.webp) SIN TEXTO ENCIMA + EPÍGRAFE SUTIL ABAJO
+       9. PORTADA LIMPIA (portadasr.webp) SIN TEXTO ENCIMA + EPÍGRAFE SUTIL ABAJO
        ========================================================================== */
     .editorial-photo-card {
       width: 100%;
@@ -694,6 +737,7 @@
       display: flex;
       flex-direction: column;
       transition: transform 0.35s var(--ease-spring), box-shadow 0.35s ease;
+      contain: layout style;
     }
 
     .editorial-photo-card:hover {
@@ -705,7 +749,6 @@
       width: 100%;
       overflow: hidden;
       background: var(--color-bone-pure);
-      position: relative;
     }
 
     .editorial-bg-image {
@@ -736,19 +779,20 @@
     }
 
     /* ==========================================================================
-       9. PILARES DE ATENCIÓN DE SOFÍA
+       10. PILARES DE ATENCIÓN DE SOFÍA
        ========================================================================== */
     .philosophy-card {
       background: var(--color-bone-pure);
       border-radius: var(--radius-card);
       border: 1.5px solid var(--border-hairline);
-      padding: 22px 20px;
+      padding: 20px 20px;
       box-shadow: var(--shadow-subtle);
       display: flex;
       flex-direction: column;
       gap: 12px;
       position: relative;
       overflow: hidden;
+      contain: layout style;
     }
 
     .philosophy-card::before {
@@ -767,7 +811,7 @@
 
     .philosophy-title {
       font-family: var(--font-display);
-      font-size: 1.08rem;
+      font-size: 1.06rem;
       font-weight: 700;
       color: var(--brand-blue-night);
       border-bottom: 1.5px dashed rgba(67, 122, 152, 0.18);
@@ -802,7 +846,7 @@
     }
 
     /* ==========================================================================
-       10. BOTONES DE ACCIÓN EDITORIALES CON REFLEJOS ESCALONADOS
+       11. BOTONES DE ACCIÓN EDITORIALES CON REFLEJOS ESCALONADOS
        ========================================================================== */
     .actions-stack {
       display: flex;
@@ -819,17 +863,17 @@
       background: var(--color-bone-pure);
       border: 1.5px solid var(--border-hairline);
       border-radius: 20px;
-      padding: 16px 18px;
+      padding: 15px 17px;
       text-decoration: none;
       color: var(--text-main);
       box-shadow: var(--shadow-subtle);
       position: relative;
       overflow: hidden;
-      transition: all 0.28s var(--ease-spring);
+      transition: transform 0.28s var(--ease-spring), box-shadow 0.28s ease, border-color 0.25s ease;
       cursor: pointer;
+      contain: layout style;
     }
 
-    /* Reflejo diagonal continuo en todos los botones con delays escalonados */
     .editorial-btn-card::before {
       content: '';
       position: absolute;
@@ -870,7 +914,6 @@
       justify-content: center;
       background: var(--brand-blue-mist);
       color: var(--brand-blue);
-      font-size: 1.25rem;
       transition: transform 0.28s var(--ease-spring);
       position: relative;
       z-index: 3;
@@ -888,14 +931,15 @@
       gap: 2px;
       position: relative;
       z-index: 3;
+      min-width: 0;
     }
 
     .btn-main-title {
       font-family: var(--font-display);
-      font-size: 1.02rem;
+      font-size: clamp(0.96rem, 3.6vw, 1.02rem);
       font-weight: 700;
       color: var(--brand-blue-night);
-      line-height: 1.22;
+      line-height: 1.24;
     }
 
     .btn-sub-caption {
@@ -912,13 +956,14 @@
       transition: transform 0.25s ease;
       position: relative;
       z-index: 3;
+      display: inline-flex;
+      align-items: center;
     }
 
     .editorial-btn-card:hover .btn-nav-arrow {
       transform: translateX(4px);
     }
 
-    /* ESTILO RESEÑAS GOOGLE CON AURA SUAVE */
     .btn-card-google {
       background: linear-gradient(135deg, #FFFFFF 0%, #F4F8FF 100%);
       border-color: rgba(59, 130, 246, 0.38);
@@ -940,7 +985,6 @@
       color: #2563EB;
     }
 
-    /* ESTILO SPOTIFY */
     .btn-card-spotify {
       background: linear-gradient(135deg, #FFFFFF 0%, #F0FDF4 100%);
       border-color: rgba(16, 185, 129, 0.35);
@@ -950,7 +994,6 @@
       color: #059669;
     }
 
-    /* ESTILO CAFECITO */
     .btn-card-cafecito {
       background: linear-gradient(135deg, #FFFFFF 0%, #FFFBEB 100%);
       border-color: rgba(245, 158, 11, 0.35);
@@ -961,7 +1004,7 @@
     }
 
     /* ==========================================================================
-       11. BARRA DE REDES SOCIALES OFICIALES
+       12. BARRA DE REDES SOCIALES & FOOTER
        ========================================================================== */
     .social-dock-bar {
       display: flex;
@@ -999,8 +1042,37 @@
       fill: currentColor;
     }
 
+    .hub-footer-block {
+      margin-top: 10px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-stamp-chip {
+      background: rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      color: var(--color-bone-pure);
+      font-family: var(--font-mono);
+      font-size: 0.70rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-credentials-tag {
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.90);
+      font-weight: 500;
+    }
+
     /* ==========================================================================
-       12. MODAL VERIFICADO DE RESEÑAS DE GOOGLE
+       13. MODAL VERIFICADO: RESEÑAS DE GOOGLE
        ========================================================================== */
     .modal-backdrop-cover {
       position: fixed;
@@ -1015,7 +1087,7 @@
       padding: 16px;
       opacity: 0;
       visibility: hidden;
-      transition: all 0.28s var(--ease-spring);
+      transition: all 0.26s var(--ease-spring);
     }
 
     .modal-backdrop-cover.active {
@@ -1035,7 +1107,7 @@
       display: flex;
       flex-direction: column;
       transform: scale(0.95);
-      transition: transform 0.28s var(--ease-spring);
+      transition: transform 0.26s var(--ease-spring);
     }
 
     .modal-backdrop-cover.active .modal-review-card {
@@ -1119,43 +1191,68 @@
       font-weight: 500;
     }
 
-    /* FOOTER EDITORIAL */
-    .hub-footer-block {
-      margin-top: 12px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
+    /* ==========================================================================
+       14. EASTER EGG: GATITO Y PERRITO SALUDANDO EN DIAGONAL (~2.2s)
+       ========================================================================== */
+    .peekaboo-easter-egg {
+      position: fixed;
+      right: -8px;
+      bottom: 84px;
+      z-index: 95;
+      pointer-events: none;
+      width: 118px;
+      transform: translate3d(135%, 36px, 0) rotate(-18deg);
+      opacity: 0;
+      transition: transform 0.42s cubic-bezier(0.22, 1.18, 0.36, 1), opacity 0.25s ease;
+      will-change: transform, opacity;
+      filter: drop-shadow(-4px 8px 16px rgba(15, 34, 46, 0.32));
     }
 
-    .footer-stamp-chip {
-      background: rgba(255, 255, 255, 0.22);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      padding: 6px 16px;
-      border-radius: var(--radius-pill);
-      color: var(--color-bone-pure);
+    .peekaboo-easter-egg.peeking {
+      transform: translate3d(0, 0, 0) rotate(-12deg);
+      opacity: 1;
+    }
+
+    .peekaboo-hello-pill {
+      position: absolute;
+      top: -16px;
+      left: -10px;
+      background: #FFFFFF;
+      color: var(--brand-blue-night);
       font-family: var(--font-mono);
-      font-size: 0.72rem;
+      font-size: 0.62rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1.5px solid var(--brand-blue);
+      box-shadow: 0 4px 10px rgba(15, 34, 46, 0.18);
+      transform: rotate(8deg);
     }
 
-    .footer-credentials-tag {
-      font-size: 0.72rem;
-      color: rgba(255, 255, 255, 0.88);
-      font-weight: 500;
+    @keyframes tinyPawWave {
+      0%, 100% { transform: rotate(0deg); }
+      25%      { transform: rotate(-18deg); }
+      50%      { transform: rotate(12deg); }
+      75%      { transform: rotate(-16deg); }
+    }
+
+    .waving-paw-group {
+      transform-origin: 40px 72px;
+    }
+
+    .peekaboo-easter-egg.peeking .waving-paw-group {
+      animation: tinyPawWave 0.7s ease-in-out 2;
     }
   </style>
 </head>
 <body>
 
-  <!-- FONDO PLENO #437A98 + LUZ CENITAL SUAVE + ANIMALES BLANCOS ANIMADOS -->
+  <!-- FONDO PLENO #437A98 + LUZ CENITAL + ANIMALES BLANCOS ANIMADOS POR GPU -->
   <div class="bg-solid-canvas" aria-hidden="true"></div>
   <div class="bg-top-luminance" aria-hidden="true"></div>
-  <div class="bg-animals-pattern" aria-hidden="true"></div>
+  <div class="bg-animals-viewport" aria-hidden="true">
+    <div class="bg-animals-track"></div>
+  </div>
   <canvas id="ambientDustCanvas" aria-hidden="true"></canvas>
 
   <!-- CONTENEDOR MAESTRO CENTRAL -->
@@ -1166,26 +1263,21 @@
          ========================================================================== -->
     <header class="hero-top-showcase">
 
-      <!-- Logo S.R. grande y suelto arriba de todo, directo sobre el fondo azul -->
-      <div class="logo-free-stage" onclick="playTouchHaptic()" title="Sofía Rivera Veterinaria">
+      <!-- Logo S.R. grande y suelto arriba de todo, limpio sin sombra poligonal detrás -->
+      <div class="logo-free-stage" onclick="playTouchHaptic(); triggerPeekaboo(true);" title="Sofía Rivera Veterinaria">
         <svg class="brand-logo-svg" viewBox="0 0 655.17 384.81" xmlns="http://www.w3.org/2000/svg" aria-label="S.R. Veterinaria">
-          <g id="sr-logo-paths" fill="#FFFFFF">
+          <g fill="#FFFFFF">
             <path d="M120.96,206.08c-3.8-1.66-7.16-3.1-10.51-4.6-14.64-6.54-28.42-14.86-40.56-26.36-13.7-12.96-24.33-28.4-29.38-48.22-4.05-15.9-2.54-31.41,3-46.44,8.14-22.09,21.93-38.63,39.74-50.99,19.45-13.5,40.71-21.18,63.04-25.46C158.84,1.62,171.48.24,184.21.03c26.8-.44,52.97,3.22,77.68,15.95,10.93,5.63,20.92,12.88,28.6,23.64,6.91,9.68,11.29,20.52,10.88,33.29-.56,17.26-7.74,30.07-20.66,38.75-9.17,6.17-19.31,9.05-29.74,10.89-13.95,2.47-28,1.89-42.03,1.98-2.28.01-4.55,0-6.89.26,4.65,1.72,9.32,3.39,13.96,5.17,20.1,7.71,39.16,17.67,55.19,33.95,16.63,16.89,25.28,37.87,24.24,63.47-.57,14.15-4.18,27.57-8.96,40.56-11.88,32.29-29.67,59.49-54.33,80.56-19.72,16.85-42.11,26.76-66.18,32.03-17.69,3.88-35.57,5.11-53.53,3.74-21.7-1.65-42.84-6.3-62.83-16.47-15.76-8.02-29.49-19.01-39.25-35.62-14.39-24.48-13.7-53.7,1.72-77.39,8.89-13.66,20.71-23.02,34.04-30.13,12.85-6.86,26.35-11.44,40.35-13.86,10.5-1.82,21.09-2.94,31.64-4.37.81-.11,1.62-.2,2.87-.35Z"/>
             <path d="M483.3,206.22c4.67.71,9.34,1.38,14,2.13,27.1,4.37,53.65,11.29,79.17,22.79,17.46,7.87,33.98,17.67,48.64,31.2,8.86,8.18,16.74,17.41,22.49,28.74,11.34,22.31,9.71,44.1-3.28,64.55-12.49,19.68-30,29.31-51.29,29.04-13.15-.16-25.34-5.18-36.96-12-15.23-8.95-28.39-21.09-40.47-34.75-10.36-11.71-20.38-23.81-30.56-35.72-2.94-3.45-5.93-6.85-9.27-9.96,1.48,4.64,3.02,9.27,4.45,13.94,3.48,11.36,5.78,22.97,5.13,35.1-.59,11.01-3.47,21.21-9.66,29.77-8.35,11.57-19.44,15.06-32.18,13.09-22.86-3.53-40.89-16.74-55.77-36.17-12.66-16.53-22.45-35.15-30.57-54.97-6.54-15.97-11.86-32.42-15.24-49.64-2.38-12.16-3.84-24.47-3.47-36.96.46-15.37,3.36-30.26,7.32-44.9,7.94-29.39,20.2-56.36,35.56-81.53,11.37-18.64,24.65-35.3,40.56-49.11,18.6-16.15,39.21-27.09,62.61-29.97,25.57-3.16,49.27,2.77,69.82,21.21,13.8,12.38,21.91,28.74,24.87,48.43,2.91,19.32-.38,37.62-7.27,55.24-9.06,23.16-23.55,41.03-41.78,55.22-13.67,10.64-28.76,17.82-44.37,23.72-.85.32-1.69.68-2.53,1.02l.04.48Z"/>
             <path d="M352.36,345.54c.03,19.18-14.24,35.06-31.53,35.08-16.56.02-31.03-16.11-31.12-34.68-.09-19.17,14.48-35.85,31.34-35.86,17.02-.01,31.28,16.13,31.31,35.46Z"/>
           </g>
         </svg>
-
-        <!-- Reflejo sutil en cristal debajo del logo -->
-        <svg class="logo-glass-reflection" viewBox="0 0 655.17 384.81" preserveAspectRatio="xMidYMin slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <use href="#sr-logo-paths"/>
-        </svg>
       </div>
 
-      <!-- Foto estética de Sofía debajo del logo, centrada y simétrica -->
+      <!-- Foto estética de Sofía debajo del logo -->
       <div class="doctor-portrait-stage">
         <div class="doctor-portrait-ring">
-          <img src="./srvet.webp" alt="Sofía Rivera Veterinaria" class="doctor-avatar-img">
+          <img src="./srvet.webp" alt="Sofía Rivera Veterinaria" class="doctor-avatar-img" decoding="async" fetchpriority="high">
         </div>
         <div class="live-status-bubble" title="Horario: Lunes a Viernes de 9 a 18 h">
           <span class="pulse-dot"></span>
@@ -1208,7 +1300,19 @@
           </div>
 
           <div class="milkshake-welcome-slab">
-            <span class="milkshake-heading">¡Hola! Gracias por llegar hasta acá 🥰</span>
+            <span class="milkshake-heading">
+              ¡Hola! Gracias por llegar hasta
+              <span class="nowrap-tail">
+                acá
+                <!-- Ícono editorial corazón + huella minimalista -->
+                <svg class="ed-icon ed-icon-inline" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 20.5S4.5 15.6 4.5 9.8A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8c0 5.8-7.5 10.7-7.5 10.7Z" fill="#FDEEEB" stroke="#E66A59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="12.5" r="1.4" fill="#E66A59"/>
+                  <circle cx="9.6" cy="10.4" r="0.9" fill="#E66A59"/>
+                  <circle cx="14.4" cy="10.4" r="0.9" fill="#E66A59"/>
+                </svg>
+              </span>
+            </span>
             <span class="milkshake-sub">Te dejo algunos links importantes:</span>
           </div>
         </div>
@@ -1229,7 +1333,7 @@
     >
       <div class="hero-wa-info">
         <span class="hero-wa-beacon">Respuesta Directa Oficial</span>
-        <h2 class="hero-wa-title">Solicitar turno por WhatsApp ›</h2>
+        <h2 class="hero-wa-title">Solicitá turno por WhatsApp ›</h2>
         <span class="hero-wa-caption">Coordinación de visitas en Moreno</span>
       </div>
       <div class="wa-bubble-circle" aria-hidden="true">
@@ -1241,41 +1345,74 @@
 
 
     <!-- ==========================================================================
-         3. CONDICIONES & HORARIOS
+         3. CONDICIONES & HORARIOS (ICONOS VECTORIALES + LAYOUT UNA LÍNEA)
          ========================================================================== -->
     <section class="conditions-card reveal-block">
       <div class="conditions-head">
         <span class="conditions-title">
-          <span>📋</span>
+          <!-- Clipboard clínico duotono -->
+          <svg class="ed-icon ed-icon-inline" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="5" y="4" width="14" height="17" rx="3" fill="#EDF4F8" stroke="#437A98" stroke-width="2"/>
+            <path d="M9 4.5h6a1 1 0 0 0 1-1v-.5a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v.5a1 1 0 0 0 1 1Z" fill="#FFFFFF" stroke="#437A98" stroke-width="1.8"/>
+            <path d="M9 11h6M9 15h4" stroke="#224254" stroke-width="2" stroke-linecap="round"/>
+          </svg>
           <span>Condiciones de Atención</span>
         </span>
-        <span class="live-clock-pill" id="schedulePillElement">Lunes a Viernes</span>
+        <span class="live-clock-pill" id="schedulePillElement">Lun a Vie · 9 a 18 h</span>
       </div>
 
       <div class="condition-row">
-        <span>🕘</span>
+        <!-- Reloj editorial -->
+        <svg class="ed-icon ed-icon-inline" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="#EDF4F8" stroke="#437A98" stroke-width="2"/>
+          <path d="M12 7v5l3.2 2" stroke="#224254" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
         <span><strong>Mis horarios de atención son:</strong> de lunes a viernes de 9 a 18 h.</span>
       </div>
 
       <div class="condition-row">
-        <span>📍</span>
+        <!-- Pin domiciliario -->
+        <svg class="ed-icon ed-icon-inline" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 1 1 13 0c0 5.4-6.5 11-6.5 11Z" fill="#EDF4F8" stroke="#437A98" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="12" cy="10" r="2.4" fill="#E66A59"/>
+        </svg>
         <span>Atiendo <strong>ÚNICAMENTE</strong> a domicilio en algunas zonas de Moreno.</span>
       </div>
 
       <div class="urgent-notice-box">
         <div class="urgent-line">
-          <span>❌</span>
+          <svg class="ed-icon ed-icon-inline" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" fill="#FFFFFF" stroke="#B43322" stroke-width="2"/>
+            <path d="M9 9l6 6M15 9l-6 6" stroke="#B43322" stroke-width="2" stroke-linecap="round"/>
+          </svg>
           <span>NO ATIENDO URGENCIAS</span>
         </div>
         <div class="urgent-line">
-          <span>❌</span>
+          <svg class="ed-icon ed-icon-inline" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" fill="#FFFFFF" stroke="#B43322" stroke-width="2"/>
+            <path d="M9 9l6 6M15 9l-6 6" stroke="#B43322" stroke-width="2" stroke-linecap="round"/>
+          </svg>
           <span>NO REALIZO CIRUGÍAS</span>
         </div>
       </div>
 
       <div class="turn-instructions-box">
-        <div>🗓️ <strong>Para solicitar turno:</strong> Enviar calles de referencia del domicilio y el motivo de consulta.</div>
-        <div>🗓️ <strong>Para turnos de ecografía:</strong> adjuntame la orden de tu veterinario.</div>
+        <div class="turn-instruction-row">
+          <svg class="ed-icon ed-icon-inline" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="3" fill="#FFFFFF" stroke="#437A98" stroke-width="2"/>
+            <path d="M8 3v4M16 3v4M3 10h18" stroke="#224254" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="9" cy="15" r="1.3" fill="#437A98"/>
+          </svg>
+          <div><strong>Para solicitar turno:</strong> Enviar calles de referencia del domicilio y el motivo de consulta.</div>
+        </div>
+        <div class="turn-instruction-row">
+          <svg class="ed-icon ed-icon-inline" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="4" y="3" width="16" height="18" rx="3" fill="#FFFFFF" stroke="#437A98" stroke-width="2"/>
+            <path d="M8 13c1.2-2.5 2.4-2.5 3.6 0s2.4 2.5 3.6 0" stroke="#E66A59" stroke-width="2" stroke-linecap="round"/>
+            <path d="M8 8h8" stroke="#224254" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div><strong>Para turnos de ecografía:</strong> adjuntame la orden de tu veterinario.</div>
+        </div>
       </div>
     </section>
 
@@ -1285,7 +1422,7 @@
          ========================================================================== -->
     <figure class="editorial-photo-card reveal-block">
       <div class="editorial-photo-frame">
-        <img src="./portadasr.webp" alt="Sofía Rivera Veterinaria en Atención" class="editorial-bg-image">
+        <img src="./portadasr.webp" alt="Sofía Rivera Veterinaria en Atención" class="editorial-bg-image" decoding="async">
       </div>
       <figcaption class="editorial-epigraph-bar">
         <p class="editorial-epigraph-text">“Cada paciente es único · Prevención, bienestar y cuidados en su propio hogar.”</p>
@@ -1294,9 +1431,9 @@
 
 
     <!-- ==========================================================================
-         5. PILARES DE SU TRABAJO
+         5. PILARES DE SU TRABAJO (SENTINEL PARA EASTER EGG)
          ========================================================================== -->
-    <section class="philosophy-card reveal-block">
+    <section class="philosophy-card reveal-block" id="easterEggSentinel">
       <div class="philosophy-title">Los puntos claves en mi trabajo son:</div>
       <div class="philosophy-list">
         <div class="philosophy-item">
@@ -1320,13 +1457,17 @@
 
 
     <!-- ==========================================================================
-         6. ENLACES PRINCIPALES
+         6. ENLACES PRINCIPALES (CON ICONOS VECTORIALES PROFESIONALES)
          ========================================================================== -->
     <nav class="actions-stack reveal-block" aria-label="Enlaces importantes">
 
       <!-- RESEÑAS DE GOOGLE -->
       <div class="editorial-btn-card btn-card-google" onclick="openReviewsModal(); playTouchHaptic();">
-        <div class="btn-icon-frame">⭐</div>
+        <div class="btn-icon-frame">
+          <svg class="ed-icon ed-icon-card" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3.2l2.6 5.3 5.9.9-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.1 5.9-.9L12 3.2Z" fill="#FDE68A" stroke="#2563EB" stroke-width="1.9" stroke-linejoin="round"/>
+          </svg>
+        </div>
         <div class="btn-text-meta">
           <span class="btn-main-title">Reseñas de Google ›</span>
           <span class="btn-sub-caption">5,0 ★★★★★ 121 opiniones de clientes</span>
@@ -1342,7 +1483,12 @@
         class="editorial-btn-card btn-card-spotify"
         onclick="playTouchHaptic()"
       >
-        <div class="btn-icon-frame">🎙️</div>
+        <div class="btn-icon-frame">
+          <svg class="ed-icon ed-icon-card" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="9" y="3" width="6" height="11" rx="3" fill="#A7F3D0" stroke="#059669" stroke-width="1.9"/>
+            <path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6" stroke="#059669" stroke-width="1.9" stroke-linecap="round"/>
+          </svg>
+        </div>
         <div class="btn-text-meta">
           <span class="btn-main-title">Capítulo podcast ‘Influvetes’ ›</span>
           <span class="btn-sub-caption">Charla y divulgación en Spotify</span>
@@ -1358,7 +1504,15 @@
         class="editorial-btn-card"
         onclick="playTouchHaptic()"
       >
-        <div class="btn-icon-frame">🐶</div>
+        <div class="btn-icon-frame">
+          <svg class="ed-icon ed-icon-card" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7.5 8.5C6 6.5 4 7.5 4.2 10.5c.2 2.2 1.8 3.2 2.8 3M16.5 8.5C18 6.5 20 7.5 19.8 10.5c-.2 2.2-1.8 3.2-2.8 3" stroke="#437A98" stroke-width="1.9" stroke-linecap="round"/>
+            <path d="M12 5.5c3.6 0 5.5 2.8 5.5 6.5 0 3.5-2.3 6.5-5.5 6.5S6.5 15.5 6.5 12c0-3.7 1.9-6.5 5.5-6.5Z" fill="#FFFFFF" stroke="#437A98" stroke-width="1.9"/>
+            <circle cx="10" cy="11.5" r="1" fill="#224254"/>
+            <circle cx="14" cy="11.5" r="1" fill="#224254"/>
+            <path d="M11 14.5h2l-1 1.2-1-1.2Z" fill="#E66A59" stroke="#E66A59" stroke-width="1" stroke-linejoin="round"/>
+          </svg>
+        </div>
         <div class="btn-text-meta">
           <span class="btn-main-title">Taller sobre razas caninas ›</span>
           <span class="btn-sub-caption">Formación y consulta directa</span>
@@ -1374,7 +1528,13 @@
         class="editorial-btn-card"
         onclick="playTouchHaptic()"
       >
-        <div class="btn-icon-frame">📰</div>
+        <div class="btn-icon-frame">
+          <svg class="ed-icon ed-icon-card" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="4" y="4" width="16" height="16" rx="2.5" fill="#FFFFFF" stroke="#437A98" stroke-width="1.9"/>
+            <rect x="7.5" y="7.5" width="9" height="4" rx="1" fill="#EDF4F8" stroke="#437A98" stroke-width="1.5"/>
+            <path d="M7.5 14.5h9M7.5 17.2h6" stroke="#224254" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
         <div class="btn-text-meta">
           <span class="btn-main-title">Nota en la revista 2 + 2 ›</span>
           <span class="btn-sub-caption">Artículo y prensa especializada</span>
@@ -1390,7 +1550,12 @@
         class="editorial-btn-card"
         onclick="playTouchHaptic()"
       >
-        <div class="btn-icon-frame">💡</div>
+        <div class="btn-icon-frame">
+          <svg class="ed-icon ed-icon-card" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M9 17.5h6M10 20.5h4" stroke="#437A98" stroke-width="1.9" stroke-linecap="round"/>
+            <path d="M12 3.5a5.5 5.5 0 0 0-3.5 9.7c.7.6 1.1 1.4 1.2 2.3h4.6c.1-.9.5-1.7 1.2-2.3A5.5 5.5 0 0 0 12 3.5Z" fill="#FEF3C7" stroke="#437A98" stroke-width="1.9" stroke-linejoin="round"/>
+          </svg>
+        </div>
         <div class="btn-text-meta">
           <span class="btn-main-title">5 cosas que tenes que saber antes de comprar un perro de raza ›</span>
           <span class="btn-sub-caption">Guía de tenencia responsable</span>
@@ -1406,12 +1571,22 @@
         class="editorial-btn-card btn-card-cafecito"
         onclick="playTouchHaptic()"
       >
-        <div class="btn-icon-frame">☕</div>
+        <div class="btn-icon-frame">
+          <svg class="ed-icon ed-icon-card" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 10h11v5a5 5 0 0 1-5 5H10a5 5 0 0 1-5-5v-5Z" fill="#FDE68A" stroke="#D97706" stroke-width="1.9" stroke-linejoin="round"/>
+            <path d="M16 11.5h2a2 2 0 0 1 0 4h-2" stroke="#D97706" stroke-width="1.9" stroke-linecap="round"/>
+            <path d="M8.5 6.5c0-1 .8-1.5.8-2.5M12.5 6.5c0-1 .8-1.5.8-2.5" stroke="#D97706" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
         <div class="btn-text-meta">
           <span class="btn-main-title">¿Me invitas un cafecito? ›</span>
           <span class="btn-sub-caption">Colaborá con el proyecto de divulgación</span>
         </div>
-        <span class="btn-nav-arrow">❤️</span>
+        <span class="btn-nav-arrow" aria-hidden="true">
+          <svg class="ed-icon ed-icon-inline" viewBox="0 0 24 24" fill="none">
+            <path d="M12 20S4.5 15.2 4.5 9.6A4.2 4.2 0 0 1 12 7a4.2 4.2 0 0 1 7.5 2.6C19.5 15.2 12 20 12 20Z" fill="#E66A59"/>
+          </svg>
+        </span>
       </a>
 
     </nav>
@@ -1440,6 +1615,43 @@
     </div>
 
   </main>
+
+
+  <!-- ==========================================================================
+       EASTER EGG: GATITO Y PERRITO ASOMÁNDOSE EN DIAGONAL AL SCROLLEAR (~2.2s)
+       ========================================================================== -->
+  <div class="peekaboo-easter-egg" id="peekabooCompanion" aria-hidden="true">
+    <span class="peekaboo-hello-pill">¡Hola!</span>
+    <svg viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Perrito simpático (fondo derecha) -->
+      <path d="M62 42c-3-10-12-8-12 2 0 4 2 7 4 9" fill="#E8C9A5" stroke="#224254" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M98 42c6-9 14-5 12 6-1 4-3 7-6 8" fill="#E8C9A5" stroke="#224254" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M60 98c0-28 5-46 21-46s23 18 23 46H60Z" fill="#FAF8F5" stroke="#224254" stroke-width="2.3" stroke-linejoin="round"/>
+      <ellipse cx="81" cy="48" rx="18" ry="15" fill="#FAF8F5" stroke="#224254" stroke-width="2.3"/>
+      <ellipse cx="87" cy="46" rx="6" ry="5" fill="#E8C9A5"/>
+      <circle cx="75" cy="46" r="2" fill="#142833"/>
+      <circle cx="87" cy="46" r="2" fill="#142833"/>
+      <ellipse cx="81" cy="52" rx="3.2" ry="2.2" fill="#142833"/>
+      <path d="M77 56c2 2.5 6 2.5 8 0" stroke="#224254" stroke-width="1.8" stroke-linecap="round"/>
+      <!-- Collar azul de Sofía -->
+      <path d="M66 64c10 4 20 4 30 0" stroke="#437A98" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="81" cy="68" r="2.6" fill="#E66A59"/>
+
+      <!-- Gatito blanco (frente izquierda) -->
+      <path d="M20 98c0-21 6-36 19-36s19 15 19 36H20Z" fill="#FFFFFF" stroke="#224254" stroke-width="2.3" stroke-linejoin="round"/>
+      <path d="M24 52L20 33l14 10a16 16 0 0 1 11 0l14-10-4 19c3 6 1 15-15.5 16S21 58 24 52Z" fill="#FFFFFF" stroke="#224254" stroke-width="2.3" stroke-linejoin="round"/>
+      <circle cx="33" cy="53" r="1.8" fill="#142833"/>
+      <circle cx="46" cy="53" r="1.8" fill="#142833"/>
+      <path d="M38.5 57h2l-1 1.5-1-1.5Z" fill="#E66A59"/>
+      <path d="M16 54l9 1.5M15 59l9-.5M62 54l-9 1.5M63 59l-9-.5" stroke="#678191" stroke-width="1.5" stroke-linecap="round"/>
+
+      <!-- Patita saludando animada -->
+      <g class="waving-paw-group">
+        <ellipse cx="30" cy="70" rx="6" ry="9" transform="rotate(-24 30 70)" fill="#FFFFFF" stroke="#224254" stroke-width="2.2"/>
+        <circle cx="28" cy="65" r="1.5" fill="#E66A59"/>
+      </g>
+    </svg>
+  </div>
 
 
   <!-- ==========================================================================
@@ -1497,7 +1709,7 @@
 
 
   <!-- ==========================================================================
-       CONTROLADORES JAVASCRIPT & PARTÍCULAS AMBIENTALES
+       CONTROLADORES JAVASCRIPT: WEB WORKER OFFSCREENCANVAS + SCROLL + EASTER EGG
        ========================================================================== -->
   <script>
     // 1. Vibración háptica suave para móviles
@@ -1507,7 +1719,7 @@
       }
     }
 
-    // 2. Control de modal de reseñas de Google
+    // 2. Modal de reseñas de Google
     const modalBox = document.getElementById('reviewsModalBox');
     function openReviewsModal() {
       if (modalBox) {
@@ -1540,11 +1752,11 @@
       if (!pill) return;
 
       if (day >= 1 && day <= 5 && hours >= 9 && hours < 18) {
-        pill.innerText = "Abierto Ahora (9 a 18 h)";
+        pill.innerText = "Abierto · 9 a 18 h";
         pill.style.background = "#E6F4EA";
         pill.style.color = "#137333";
       } else {
-        pill.innerText = "Lunes a Viernes (9 a 18 h)";
+        pill.innerText = "Lun a Vie · 9 a 18 h";
         pill.style.background = "var(--brand-blue-mist)";
         pill.style.color = "var(--brand-blue-deep)";
       }
@@ -1552,7 +1764,7 @@
     updateScheduleBadge();
     setInterval(updateScheduleBadge, 60000);
 
-    // 4. Aparición escalonada al scrollear (Scroll Reveal)
+    // 4. Scroll Reveal instantáneo (se anticipa 220px antes de entrar en pantalla)
     const revealItems = document.querySelectorAll('.reveal-block');
     if ('IntersectionObserver' in window) {
       const revealObserver = new IntersectionObserver((entries, obs) => {
@@ -1562,73 +1774,218 @@
             obs.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+      }, { threshold: 0.01, rootMargin: '0px 0px 220px 0px' });
 
-      revealItems.forEach((el, idx) => {
-        el.style.transitionDelay = `${Math.min(idx * 60, 240)}ms`;
-        revealObserver.observe(el);
-      });
+      revealItems.forEach((el) => revealObserver.observe(el));
     } else {
       revealItems.forEach(el => el.classList.add('is-visible'));
     }
 
-    // 5. Canvas de polvo luminoso ambiental
-    const dustCanvas = document.getElementById('ambientDustCanvas');
-    const dustCtx = dustCanvas.getContext('2d');
-    let cWidth, cHeight;
+    // 5. Easter Egg: Gato y perrito saludando en diagonal (~2.2s)
+    const peekabooEl = document.getElementById('peekabooCompanion');
+    const sentinelEl = document.getElementById('easterEggSentinel');
+    let peekTimer = null;
+    let lastPeekTime = 0;
 
-    function resizeDust() {
-      cWidth = dustCanvas.width = window.innerWidth;
-      cHeight = dustCanvas.height = window.innerHeight;
+    function triggerPeekaboo(force) {
+      if (!peekabooEl) return;
+      const now = Date.now();
+      if (!force && now - lastPeekTime < 7000) return;
+
+      lastPeekTime = now;
+      clearTimeout(peekTimer);
+      peekabooEl.classList.add('peeking');
+
+      peekTimer = setTimeout(() => {
+        peekabooEl.classList.remove('peeking');
+      }, 2200);
     }
-    window.addEventListener('resize', resizeDust);
-    resizeDust();
 
-    const particles = [];
-    for (let i = 0; i < 36; i++) {
-      particles.push({
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-        r: Math.random() * 2.4 + 0.8,
+    if (sentinelEl && 'IntersectionObserver' in window) {
+      let hasScrolledOnce = false;
+      window.addEventListener('scroll', () => { hasScrolledOnce = true; }, { passive: true, once: true });
+
+      const peekObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && hasScrolledOnce) {
+            triggerPeekaboo(false);
+          }
+        });
+      }, { threshold: 0.45 });
+
+      peekObserver.observe(sentinelEl);
+    }
+
+    // 6. Partículas Ambientales en Web Worker + OffscreenCanvas (Hilo principal 100% libre)
+    (function initAmbientDustEngine() {
+      const canvas = document.getElementById('ambientDustCanvas');
+      if (!canvas) return;
+
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      // Si soporta Web Worker + OffscreenCanvas, delegamos todo al Worker en segundo plano
+      if ('Worker' in window && 'transferControlToOffscreen' in canvas) {
+        try {
+          const workerCode = `
+            let ctx = null;
+            let w = 0;
+            let h = 0;
+            let dpr = 1;
+            const particles = [];
+
+            function initParticles() {
+              particles.length = 0;
+              for (let i = 0; i < 34; i++) {
+                particles.push({
+                  x: Math.random() * w,
+                  y: Math.random() * h,
+                  r: Math.random() * 2.2 + 0.8,
+                  vy: -(Math.random() * 0.36 + 0.14),
+                  alpha: Math.random() * 0.42 + 0.14,
+                  theta: Math.random() * Math.PI * 2
+                });
+              }
+            }
+
+            function render() {
+              if (!ctx) return;
+              ctx.clearRect(0, 0, w, h);
+              for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+                p.y += p.vy;
+                p.theta += 0.015;
+                p.x += Math.sin(p.theta) * 0.24;
+
+                if (p.y < -10) {
+                  p.y = h + 10;
+                  p.x = Math.random() * w;
+                }
+
+                ctx.fillStyle = 'rgba(255, 255, 255, ' + p.alpha + ')';
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fill();
+              }
+              requestAnimationFrame(render);
+            }
+
+            self.onmessage = function(e) {
+              const data = e.data;
+              if (data.type === 'init') {
+                const offscreen = data.canvas;
+                w = data.width;
+                h = data.height;
+                dpr = data.dpr;
+                offscreen.width = w * dpr;
+                offscreen.height = h * dpr;
+                ctx = offscreen.getContext('2d');
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                initParticles();
+                requestAnimationFrame(render);
+              } else if (data.type === 'resize' && ctx) {
+                w = data.width;
+                h = data.height;
+                dpr = data.dpr;
+                ctx.canvas.width = w * dpr;
+                ctx.canvas.height = h * dpr;
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+              }
+            };
+          `;
+
+          const blob = new Blob([workerCode], { type: 'application/javascript' });
+          const workerUrl = URL.createObjectURL(blob);
+          const worker = new Worker(workerUrl);
+          const offscreen = canvas.transferControlToOffscreen();
+
+          worker.postMessage({
+            type: 'init',
+            canvas: offscreen,
+            width: window.innerWidth,
+            height: window.innerHeight,
+            dpr: dpr
+          }, [offscreen]);
+
+          let resizeTick = false;
+          window.addEventListener('resize', () => {
+            if (!resizeTick) {
+              resizeTick = true;
+              requestAnimationFrame(() => {
+                worker.postMessage({
+                  type: 'resize',
+                  width: window.innerWidth,
+                  height: window.innerHeight,
+                  dpr: Math.min(window.devicePixelRatio || 1, 2)
+                });
+                resizeTick = false;
+              });
+            }
+          }, { passive: true });
+
+          URL.revokeObjectURL(workerUrl);
+          return;
+        } catch(_) {}
+      }
+
+      // Fallback liviano para navegadores sin OffscreenCanvas
+      const ctx = canvas.getContext('2d');
+      let cWidth, cHeight;
+      function resizeFallback() {
+        cWidth = window.innerWidth;
+        cHeight = window.innerHeight;
+        canvas.width = cWidth * dpr;
+        canvas.height = cHeight * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      window.addEventListener('resize', resizeFallback, { passive: true });
+      resizeFallback();
+
+      const particles = Array.from({ length: 30 }, () => ({
+        x: Math.random() * cWidth,
+        y: Math.random() * cHeight,
+        r: Math.random() * 2.2 + 0.8,
         vy: -(Math.random() * 0.36 + 0.14),
-        alpha: Math.random() * 0.45 + 0.15,
+        alpha: Math.random() * 0.42 + 0.14,
         theta: Math.random() * Math.PI * 2
-      });
-    }
+      }));
 
-    function renderDust() {
-      dustCtx.clearRect(0, 0, cWidth, cHeight);
-      particles.forEach(p => {
-        p.y += p.vy;
-        p.theta += 0.015;
-        p.x += Math.sin(p.theta) * 0.25;
+      function renderFallback() {
+        ctx.clearRect(0, 0, cWidth, cHeight);
+        particles.forEach(p => {
+          p.y += p.vy;
+          p.theta += 0.015;
+          p.x += Math.sin(p.theta) * 0.24;
+          if (p.y < -10) {
+            p.y = cHeight + 10;
+            p.x = Math.random() * cWidth;
+          }
+          ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha})`;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fill();
+        });
+        requestAnimationFrame(renderFallback);
+      }
+      renderFallback();
+    })();
 
-        if (p.y < -10) {
-          p.y = cHeight + 10;
-          p.x = Math.random() * cWidth;
-        }
-
-        dustCtx.fillStyle = `rgba(255, 255, 255, ${p.alpha})`;
-        dustCtx.beginPath();
-        dustCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        dustCtx.fill();
-      });
-      requestAnimationFrame(renderDust);
-    }
-    renderDust();
-
-    // 6. Física de cursor magnético sutil para desktop (patrón unificado de tus desarrollos)
+    // 7. Física de cursor magnético sutil para desktop (optimizada sin layout thrashing)
     if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
       document.querySelectorAll('.btn-hero-whatsapp, .editorial-btn-card, .social-pill-btn').forEach(card => {
+        let rafId = null;
         card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          const y = e.clientY - rect.top - rect.height / 2;
-          card.style.transform = `translate(${x * 0.02}px, ${y * 0.02 - 3}px)`;
-        });
+          if (rafId) cancelAnimationFrame(rafId);
+          rafId = requestAnimationFrame(() => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            card.style.transform = `translate3d(${x * 0.02}px, ${y * 0.02 - 3}px, 0)`;
+          });
+        }, { passive: true });
         card.addEventListener('mouseleave', () => {
+          if (rafId) cancelAnimationFrame(rafId);
           card.style.transform = '';
-        });
+        }, { passive: true });
       });
     }
   </script>
