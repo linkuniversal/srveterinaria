@@ -1,1 +1,1452 @@
-SR VET
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Sofía Rivera | Veterinaria a Domicilio · Moreno</title>
+  <meta name="description" content="Veterinaria UBA M.P. 14008. Diplomada en Medicina Felina (USAL). Atención clínica y ecografía a domicilio en Moreno.">
+  <meta name="theme-color" content="#437A98">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- PRELOAD DE IMÁGENES LOCALES WEBP -->
+  <link rel="preload" as="image" href="./srvet.webp">
+  <link rel="preload" as="image" href="./portadasr.webp">
+
+  <!-- TIPOGRAFÍAS EDITORIALES DE ALTA COSTURA: FRAUNCES + PLUS JAKARTA SANS + SPACE GROTESK -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. SISTEMA CROMÁTICO EDITORIAL VETERINARIO (PALETA #437A98 & CONTRASTES)
+       ========================================================================== */
+    :root {
+      --brand-blue: #437A98;
+      --brand-blue-deep: #224254;
+      --brand-blue-night: #142833;
+      --brand-blue-soft: #5E94B2;
+      --brand-blue-mist: #EDF4F8;
+      
+      --color-bone-pure: #FFFFFF;
+      --color-bone-warm: #FAF8F5;
+      --color-bone-elevated: #F3EFE8;
+      
+      --accent-coral: #E66A59;
+      --accent-coral-soft: #FDEEEB;
+      --accent-coral-dark: #9E2F20;
+      
+      --accent-sage: #529B85;
+      --accent-sage-soft: #E6F4F0;
+      --accent-gold: #C99645;
+      
+      --text-main: #13242E;
+      --text-body: #344C5A;
+      --text-muted: #678191;
+      --text-light: #F4F8FB;
+
+      --border-light: rgba(255, 255, 255, 0.45);
+      --border-hairline: rgba(67, 122, 152, 0.16);
+      
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono: 'Space Grotesk', monospace;
+
+      --shadow-subtle: 0 10px 30px -8px rgba(20, 40, 51, 0.10), 0 2px 6px rgba(0, 0, 0, 0.04);
+      --shadow-sculpture: 0 20px 48px -12px rgba(20, 40, 51, 0.18), 0 4px 12px rgba(0, 0, 0, 0.04);
+      --shadow-hover: 0 26px 54px -10px rgba(20, 40, 51, 0.24);
+      
+      --radius-monument: 36px;
+      --radius-card: 24px;
+      --radius-pill: 9999px;
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      font-size: 16px;
+      background-color: var(--brand-blue);
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      background-color: var(--brand-blue);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 14px 64px;
+      overflow-x: hidden;
+      position: relative;
+      letter-spacing: -0.012em;
+    }
+
+    /* ==========================================================================
+       2. FONDO CINEMATOGRÁFICO DE LÍNEA CONTINUA (ARTE VECTORIAL EDITORIAL)
+       ========================================================================== */
+    .bg-mesh-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(94, 148, 178, 0.85) 0%, transparent 55%),
+        radial-gradient(circle at 82% 82%, rgba(20, 40, 51, 0.95) 0%, transparent 60%),
+        linear-gradient(180deg, #437A98 0%, #2D566D 100%);
+    }
+
+    /* Pattern continuo geométrico de líneas orgánicas de contorno animal */
+    .bg-fine-pattern {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.055;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath fill='none' stroke='%23FFFFFF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' d='M25 45 c-8-12-2-25 10-25 c8 0 14 6 18 12 c4-6 10-12 18-12 c12 0 18 13 10 25 c-12 18-28 32-28 32 s-16-14-28-32 Z'/%3E%3Ccircle cx='95' cy='30' r='5' fill='%23FFFFFF'/%3E%3Ccircle cx='108' cy='40' r='3.5' fill='%23FFFFFF'/%3E%3Ccircle cx='104' cy='52' r='4' fill='%23FFFFFF'/%3E%3Cpath fill='none' stroke='%23FFFFFF' stroke-width='1.4' stroke-linecap='round' d='M88 78 c-6-8-18-8-24 0 c-4 5-2 15 4 19 c8 6 22 2 24-7 c1-4-1-9-4-12 Z'/%3E%3Cpath fill='none' stroke='%23FFFFFF' stroke-width='1.4' stroke-linecap='round' d='M18 95 Q35 80 50 95 T85 95'/%3E%3C/svg%3E");
+      background-size: 120px 120px;
+      animation: ambientPatternFloat 55s linear infinite;
+    }
+
+    @keyframes ambientPatternFloat {
+      0% { background-position: 0 0; }
+      100% { background-position: 120px 240px; }
+    }
+
+    /* Partículas luminosas ambientales flotando con física */
+    #ambientDustCanvas {
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* ==========================================================================
+       3. CONTENEDOR CENTRAL MAESTRO (RESPONSIVE DE ALTA PRECISIÓN)
+       ========================================================================== */
+    .master-editorial-shell {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 0 auto;
+      padding-top: 20px;
+    }
+
+    /* ==========================================================================
+       4. CABECERA MONUMENTAL: LOGO S.R. ESCULPIDO + FOTO PRESENTACIÓN
+       ========================================================================== */
+    .hero-presentation-card {
+      background: var(--color-bone-pure);
+      border-radius: var(--radius-monument);
+      border: 2px solid var(--border-light);
+      padding: 28px 24px 24px;
+      box-shadow: var(--shadow-sculpture);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
+    }
+
+    /* Marcas de agua lineales suaves inspiradas en Milkshake */
+    .hero-presentation-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 140px;
+      background: repeating-linear-gradient(
+        180deg,
+        rgba(67, 122, 152, 0.05),
+        rgba(67, 122, 152, 0.05) 2px,
+        transparent 2px,
+        transparent 16px
+      );
+      border-bottom: 1.5px solid rgba(67, 122, 152, 0.08);
+      pointer-events: none;
+    }
+
+    /* Dúo monumental: Logo S.R. SVG esculpido al lado de foto srvet.webp */
+    .brand-monument-row {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1.08fr;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      padding: 4px 0;
+    }
+
+    .logo-monument-frame {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--brand-blue-mist);
+      border-radius: 28px;
+      padding: 18px 14px;
+      border: 1.5px solid rgba(67, 122, 152, 0.14);
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.02);
+      transition: transform 0.3s var(--ease-spring);
+    }
+
+    .logo-monument-frame:hover {
+      transform: scale(1.02);
+    }
+
+    .brand-logo-svg {
+      width: 100%;
+      max-width: 155px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 6px 14px rgba(34, 66, 84, 0.22));
+    }
+
+    .logo-stamp-caption {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--brand-blue-deep);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    .doctor-avatar-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      max-width: 190px;
+      margin: 0 auto;
+      border-radius: 28px;
+      padding: 4px;
+      background: linear-gradient(135deg, var(--brand-blue), var(--accent-coral));
+      box-shadow: 0 12px 28px rgba(34, 66, 84, 0.20);
+    }
+
+    .doctor-avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 24px;
+      object-fit: cover;
+      object-position: center 25%;
+      display: block;
+      background: var(--brand-blue-mist);
+      border: 2px solid var(--color-bone-pure);
+    }
+
+    .live-status-bubble {
+      position: absolute;
+      bottom: -6px;
+      right: -6px;
+      background: var(--color-bone-pure);
+      border: 2px solid #22C55E;
+      border-radius: var(--radius-pill);
+      padding: 4px 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+      font-family: var(--font-mono);
+      font-size: 0.64rem;
+      font-weight: 700;
+      color: #15803D;
+    }
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22C55E;
+      box-shadow: 0 0 8px #22C55E;
+      animation: pulseActive 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseActive {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    /* Bloque Tipográfico de Identidad */
+    .hero-identity-block {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-name-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 5.2vw, 1.8rem);
+      font-weight: 800;
+      color: var(--brand-blue-night);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-specialty-subtitle {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--brand-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Badges de credenciales con wave suave */
+    .credentials-pills-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin: 8px 0 14px;
+    }
+
+    .cred-badge {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 5px 11px;
+      border-radius: var(--radius-pill);
+      background: var(--brand-blue-mist);
+      color: var(--brand-blue-deep);
+      border: 1px solid rgba(67, 122, 152, 0.18);
+    }
+
+    .cred-badge.gold {
+      background: #FFFBEB;
+      color: #92400E;
+      border-color: #FCD34D;
+    }
+
+    /* Bloque exacto del perfil y Milkshake */
+    .milkshake-welcome-slab {
+      width: 100%;
+      background: linear-gradient(135deg, rgba(253, 238, 235, 0.7) 0%, rgba(255, 255, 255, 0.9) 100%);
+      border: 1.5px solid rgba(230, 106, 89, 0.25);
+      border-radius: 20px;
+      padding: 14px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .milkshake-heading {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent-coral);
+    }
+
+    .milkshake-sub {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--brand-blue-deep);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* ==========================================================================
+           5. HERO CARD PRINCIPAL: SOLICITAR TURNO POR WHATSAPP
+           ========================================================================== */
+    .btn-hero-whatsapp {
+      background: var(--color-bone-pure);
+      border: 2.5px solid #22C55E;
+      border-radius: 24px;
+      padding: 20px 22px;
+      text-decoration: none;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: 0 16px 36px -8px rgba(34, 197, 94, 0.28);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.28s var(--ease-spring);
+    }
+
+    .btn-hero-whatsapp::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -130%;
+      width: 75%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65), transparent);
+      transform: skewX(-24deg);
+      animation: lightSheen 6s infinite ease-in-out;
+    }
+
+    @keyframes lightSheen {
+      0%, 45% { left: -130%; }
+      75%, 100% { left: 160%; }
+    }
+
+    .btn-hero-whatsapp:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 22px 46px -6px rgba(34, 197, 94, 0.38);
+      border-color: #16A34A;
+    }
+
+    .btn-hero-whatsapp:active {
+      transform: translateY(1px);
+    }
+
+    .hero-wa-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-align: left;
+    }
+
+    .hero-wa-beacon {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #15803D;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-wa-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 4vw, 1.32rem);
+      font-weight: 800;
+      color: var(--brand-blue-night);
+      line-height: 1.15;
+    }
+
+    .hero-wa-caption {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .wa-bubble-circle {
+      width: 52px;
+      height: 52px;
+      min-width: 52px;
+      border-radius: 50%;
+      background: #22C55E;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 22px rgba(34, 197, 94, 0.4);
+      transition: transform 0.28s var(--ease-spring);
+    }
+
+    .btn-hero-whatsapp:hover .wa-bubble-circle {
+      transform: scale(1.1) rotate(8deg);
+    }
+
+    .wa-bubble-circle svg {
+      width: 26px;
+      height: 26px;
+      fill: currentColor;
+    }
+
+    /* ==========================================================================
+           6. TARJETA CONDICIONES & PROTOCOLO DE ATENCIÓN (DATOS REALES)
+           ========================================================================== */
+    .conditions-card {
+      background: var(--color-bone-pure);
+      border-radius: var(--radius-card);
+      border: 1.5px solid var(--border-hairline);
+      border-left: 6px solid var(--brand-blue);
+      padding: 22px 20px;
+      box-shadow: var(--shadow-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .conditions-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1.5px dashed rgba(67, 122, 152, 0.18);
+      padding-bottom: 8px;
+    }
+
+    .conditions-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--brand-blue-night);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .live-clock-pill {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      background: var(--brand-blue-mist);
+      color: var(--brand-blue-deep);
+    }
+
+    .condition-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      font-weight: 600;
+      color: var(--text-body);
+    }
+
+    /* Advertencia no urgencias - Soft pero contundente */
+    .urgent-notice-box {
+      background: var(--accent-coral-soft);
+      border: 1.5px solid rgba(230, 106, 89, 0.35);
+      border-radius: 16px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .urgent-line {
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--accent-coral-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .turn-instructions-box {
+      background: var(--brand-blue-mist);
+      border-radius: 16px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.82rem;
+      line-height: 1.4;
+      font-weight: 600;
+      color: var(--brand-blue-deep);
+    }
+
+    /* ==========================================================================
+           7. SEPARADOR EDITORIAL CON FOTO REAL (portadasr.webp)
+           ========================================================================== */
+    .editorial-break-card {
+      width: 100%;
+      height: clamp(230px, 42vh, 290px);
+      border-radius: 28px;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid var(--border-light);
+      box-shadow: var(--shadow-sculpture);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px 22px;
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+
+    .editorial-bg-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      filter: brightness(0.85) contrast(1.05);
+      transition: transform 0.6s var(--ease-spring);
+    }
+
+    .editorial-break-card:hover .editorial-bg-image {
+      transform: scale(1.04);
+    }
+
+    .editorial-gradient-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(20,40,51,0.08) 0%, rgba(20,40,51,0.45) 45%, rgba(20,40,51,0.92) 100%);
+      z-index: 2;
+    }
+
+    .editorial-card-content {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .editorial-pill-tag {
+      align-self: flex-start;
+      font-family: var(--font-mono);
+      font-size: 0.64rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      margin-bottom: 4px;
+    }
+
+    .editorial-quote-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 4.2vw, 1.45rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: #FFFFFF;
+    }
+
+    .editorial-quote-sub {
+      font-size: 0.80rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+    }
+
+    /* =========================================================
+       8. PILARES DE ATENCIÓN DE SOFÍA (TEXTOS LITERALES)
+       ========================================================= */
+    .philosophy-card {
+      background: var(--color-bone-pure);
+      border-radius: var(--radius-card);
+      border: 1.5px solid var(--border-hairline);
+      padding: 22px 20px;
+      box-shadow: var(--shadow-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .philosophy-title {
+      font-family: var(--font-display);
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--brand-blue-night);
+      border-bottom: 1.5px dashed rgba(67, 122, 152, 0.18);
+      padding-bottom: 8px;
+    }
+
+    .philosophy-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .philosophy-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.86rem;
+      line-height: 1.42;
+      font-weight: 600;
+      color: var(--text-body);
+    }
+
+    .bullet-point {
+      color: var(--brand-blue);
+      font-weight: 800;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    /* ==========================================================================
+           9. BOTONES DE ACCIÓN EDITORIALES (MILKSHAKE + GOOGLE + SPOTIFY)
+           ========================================================================== */
+    .actions-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .editorial-btn-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      background: var(--color-bone-pure);
+      border: 1.5px solid var(--border-hairline);
+      border-radius: 20px;
+      padding: 16px 18px;
+      text-decoration: none;
+      color: var(--text-main);
+      box-shadow: var(--shadow-subtle);
+      transition: all 0.28s var(--ease-spring);
+      cursor: pointer;
+    }
+
+    .editorial-btn-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--brand-blue);
+    }
+
+    .editorial-btn-card:active {
+      transform: translateY(1px);
+    }
+
+    .btn-icon-frame {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--brand-blue-mist);
+      color: var(--brand-blue);
+      font-size: 1.25rem;
+      transition: transform 0.25s ease;
+    }
+
+    .editorial-btn-card:hover .btn-icon-frame {
+      transform: scale(1.08) rotate(3deg);
+    }
+
+    .btn-text-meta {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      text-align: left;
+      gap: 2px;
+    }
+
+    .btn-main-title {
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--brand-blue-night);
+      line-height: 1.22;
+    }
+
+    .btn-sub-caption {
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .btn-nav-arrow {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--brand-blue);
+      transition: transform 0.25s ease;
+    }
+
+    .editorial-btn-card:hover .btn-nav-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ESTILO RESEÑAS GOOGLE */
+    .btn-card-google {
+      background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+      border-color: rgba(59, 130, 246, 0.35);
+    }
+    .btn-card-google .btn-icon-frame {
+      background: #EFF6FF;
+      color: #2563EB;
+    }
+
+    /* ESTILO SPOTIFY */
+    .btn-card-spotify {
+      background: linear-gradient(135deg, #FFFFFF 0%, #F0FDF4 100%);
+      border-color: rgba(16, 185, 129, 0.35);
+    }
+    .btn-card-spotify .btn-icon-frame {
+      background: #ECFDF5;
+      color: #059669;
+    }
+
+    /* ESTILO CAFECITO */
+    .btn-card-cafecito {
+      background: linear-gradient(135deg, #FFFFFF 0%, #FFFBEB 100%);
+      border-color: rgba(245, 158, 11, 0.35);
+    }
+    .btn-card-cafecito .btn-icon-frame {
+      background: #FEF3C7;
+      color: #D97706;
+    }
+
+    /* ==========================================================================
+           10. BARRA DE REDES SOCIALES OFICIALES
+           ========================================================================== */
+    .social-dock-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .social-pill-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      background: var(--color-bone-pure);
+      border-radius: 16px;
+      border: 1.5px solid var(--border-hairline);
+      color: var(--brand-blue-deep);
+      text-decoration: none;
+      box-shadow: var(--shadow-subtle);
+      transition: all 0.25s var(--ease-spring);
+    }
+
+    .social-pill-btn:hover {
+      transform: translateY(-3px);
+      border-color: var(--brand-blue);
+      color: var(--brand-blue);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .social-pill-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* ==========================================================================
+           11. MODAL VERIFICADO DE RESEÑAS DE GOOGLE (5.0 ★ · 121 OPINIONES)
+           ========================================================================== */
+    .modal-backdrop-cover {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 40, 51, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.28s var(--ease-spring);
+    }
+
+    .modal-backdrop-cover.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-review-card {
+      background: var(--color-bone-pure);
+      border-radius: var(--radius-card);
+      width: 100%;
+      max-width: 440px;
+      max-height: 86vh;
+      overflow-y: auto;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+      border: 2px solid var(--border-light);
+      display: flex;
+      flex-direction: column;
+      transform: scale(0.95);
+      transition: transform 0.28s var(--ease-spring);
+    }
+
+    .modal-backdrop-cover.active .modal-review-card {
+      transform: scale(1);
+    }
+
+    .modal-review-header {
+      padding: 20px 22px;
+      background: var(--brand-blue-mist);
+      border-bottom: 1.5px solid rgba(67, 122, 152, 0.14);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-review-header h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--brand-blue-night);
+    }
+
+    .btn-close-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--color-bone-pure);
+      border: 1px solid rgba(67, 122, 152, 0.2);
+      color: var(--text-main);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .modal-review-body {
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .google-official-badge {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--color-bone-warm);
+      border: 1px solid rgba(67, 122, 152, 0.16);
+      border-radius: 16px;
+      padding: 14px 16px;
+    }
+
+    .google-stars {
+      color: #F59E0B;
+      font-size: 1rem;
+      letter-spacing: 2px;
+    }
+
+    .client-comment-pill {
+      background: var(--color-bone-pure);
+      border: 1px solid rgba(67, 122, 152, 0.14);
+      border-radius: 16px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .comment-user {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--brand-blue-night);
+    }
+
+    .comment-quote {
+      font-size: 0.82rem;
+      line-height: 1.42;
+      color: var(--text-body);
+      font-weight: 500;
+    }
+
+    /* FOOTER EDITORIAL */
+    .hub-footer-block {
+      margin-top: 14px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-stamp-chip {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      color: var(--color-bone-pure);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-credentials-tag {
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FONDO CON GRADIENTES AMBIENTALES Y PATTERN CONTINUO DE TRAZO FINO -->
+  <div class="bg-mesh-canvas" aria-hidden="true"></div>
+  <div class="bg-fine-pattern" aria-hidden="true"></div>
+  <canvas id="ambientDustCanvas" aria-hidden="true"></canvas>
+
+  <!-- CONTENEDOR MAESTRO CENTRAL -->
+  <div class="master-editorial-shell">
+
+    <!-- ==========================================================================
+         1. HERO MONUMENTAL: LOGO S.R. (SVG) + FOTO OFICIAL (srvet.webp)
+         ========================================================================== -->
+    <header class="hero-presentation-card">
+      
+      <div class="brand-monument-row">
+        
+        <!-- Logo vectorial oficial S.R. con jerarquía monumental -->
+        <div class="logo-monument-frame" onclick="playTouchHaptic()">
+          <svg class="brand-logo-svg" viewBox="0 0 655.17 384.81" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#437A98" d="M120.96,206.08c-3.8-1.66-7.16-3.1-10.51-4.6-14.64-6.54-28.42-14.86-40.56-26.36-13.7-12.96-24.33-28.4-29.38-48.22-4.05-15.9-2.54-31.41,3-46.44,8.14-22.09,21.93-38.63,39.74-50.99,19.45-13.5,40.71-21.18,63.04-25.46C158.84,1.62,171.48.24,184.21.03c26.8-.44,52.97,3.22,77.68,15.95,10.93,5.63,20.92,12.88,28.6,23.64,6.91,9.68,11.29,20.52,10.88,33.29-.56,17.26-7.74,30.07-20.66,38.75-9.17,6.17-19.31,9.05-29.74,10.89-13.95,2.47-28,1.89-42.03,1.98-2.28.01-4.55,0-6.89.26,4.65,1.72,9.32,3.39,13.96,5.17,20.1,7.71,39.16,17.67,55.19,33.95,16.63,16.89,25.28,37.87,24.24,63.47-.57,14.15-4.18,27.57-8.96,40.56-11.88,32.29-29.67,59.49-54.33,80.56-19.72,16.85-42.11,26.76-66.18,32.03-17.69,3.88-35.57,5.11-53.53,3.74-21.7-1.65-42.84-6.3-62.83-16.47-15.76-8.02-29.49-19.01-39.25-35.62-14.39-24.48-13.7-53.7,1.72-77.39,8.89-13.66,20.71-23.02,34.04-30.13,12.85-6.86,26.35-11.44,40.35-13.86,10.5-1.82,21.09-2.94,31.64-4.37.81-.11,1.62-.2,2.87-.35Z"/>
+            <path fill="#437A98" d="M483.3,206.22c4.67.71,9.34,1.38,14,2.13,27.1,4.37,53.65,11.29,79.17,22.79,17.46,7.87,33.98,17.67,48.64,31.2,8.86,8.18,16.74,17.41,22.49,28.74,11.34,22.31,9.71,44.1-3.28,64.55-12.49,19.68-30,29.31-51.29,29.04-13.15-.16-25.34-5.18-36.96-12-15.23-8.95-28.39-21.09-40.47-34.75-10.36-11.71-20.38-23.81-30.56-35.72-2.94-3.45-5.93-6.85-9.27-9.96,1.48,4.64,3.02,9.27,4.45,13.94,3.48,11.36,5.78,22.97,5.13,35.1-.59,11.01-3.47,21.21-9.66,29.77-8.35,11.57-19.44,15.06-32.18,13.09-22.86-3.53-40.89-16.74-55.77-36.17-12.66-16.53-22.45-35.15-30.57-54.97-6.54-15.97-11.86-32.42-15.24-49.64-2.38-12.16-3.84-24.47-3.47-36.96.46-15.37,3.36-30.26,7.32-44.9,7.94-29.39,20.2-56.36,35.56-81.53,11.37-18.64,24.65-35.3,40.56-49.11,18.6-16.15,39.21-27.09,62.61-29.97,25.57-3.16,49.27,2.77,69.82,21.21,13.8,12.38,21.91,28.74,24.87,48.43,2.91,19.32-.38,37.62-7.27,55.24-9.06,23.16-23.55,41.03-41.78,55.22-13.67,10.64-28.76,17.82-44.37,23.72-.85.32-1.69.68-2.53,1.02l.04.48Z"/>
+            <path fill="#437A98" d="M352.36,345.54c.03,19.18-14.24,35.06-31.53,35.08-16.56.02-31.03-16.11-31.12-34.68-.09-19.17,14.48-35.85,31.34-35.86,17.02-.01,31.28,16.13,31.31,35.46Z"/>
+          </svg>
+          <span class="logo-stamp-caption">SR VETERINARIA</span>
+        </div>
+
+        <!-- Foto de presentación de Sofía (srvet.webp subida a GitHub) -->
+        <div class="doctor-avatar-frame">
+          <img src="./srvet.webp" alt="Sofía Rivera Veterinaria" class="doctor-avatar-img">
+          <div class="live-status-bubble" title="Horario: Lunes a Viernes de 9 a 18 h">
+            <span class="pulse-dot"></span>
+            <span>9 A 18 H</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Título de Identidad -->
+      <div class="hero-identity-block">
+        <h1 class="hero-name-title">Sofía Rivera</h1>
+        <div class="hero-specialty-subtitle">Veterinaria a Domicilio</div>
+
+        <div class="credentials-pills-row">
+          <span class="cred-badge">U.B.A. 2017</span>
+          <span class="cred-badge">M.P. 14008</span>
+          <span class="cred-badge gold">USAL Felina</span>
+          <span class="cred-badge">UMAI Ecografía</span>
+          <span class="cred-badge">Docente UCES</span>
+        </div>
+
+        <div class="milkshake-welcome-slab">
+          <span class="milkshake-heading">¡Hola! Gracias por llegar hasta acá 🥰</span>
+          <span class="milkshake-sub">Te dejo algunos links importantes:</span>
+        </div>
+      </div>
+
+    </header>
+
+
+    <!-- ==========================================================================
+         2. BOTÓN HERO: SOLICITAR TURNO POR WHATSAPP
+         ========================================================================== -->
+    <a 
+      href="https://wa.me/5491173648009?text=%C2%A1Hola%20Sof%C3%ADa!%20Te%20escribo%20para%20solicitar%20un%20turno%20a%20domicilio%20en%20Moreno.%20Mis%20calles%20de%20referencia%20son:%20....%20y%20el%20motivo%20de%20consulta%20es:%20...." 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="btn-hero-whatsapp"
+      onclick="playTouchHaptic()"
+    >
+      <div class="hero-wa-info">
+        <span class="hero-wa-beacon">Respuesta Directa Oficial</span>
+        <h2 class="hero-wa-title">Solicitá turno por WhatsApp ›</h2>
+        <span class="hero-wa-caption">Coordinación de visitas en Moreno</span>
+      </div>
+      <div class="wa-bubble-circle" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+      </div>
+    </a>
+
+
+    <!-- ==========================================================================
+         3. CONDICIONES & HORARIOS (TEXTOS EXACTOS DE SOFÍA)
+         ========================================================================== -->
+    <section class="conditions-card">
+      <div class="conditions-head">
+        <span class="conditions-title">
+          <span>📋</span>
+          <span>Condiciones de Atención</span>
+        </span>
+        <span class="live-clock-pill" id="schedulePillElement">Lunes a Viernes</span>
+      </div>
+
+      <div class="condition-row">
+        <span>🕘</span>
+        <span><strong>Mis horarios de atención son:</strong> de lunes a viernes de 9 a 18 h.</span>
+      </div>
+
+      <div class="condition-row">
+        <span>📍</span>
+        <span>Atiendo <strong>ÚNICAMENTE</strong> a domicilio en algunas zonas de Moreno.</span>
+      </div>
+
+      <!-- AVISO ESTRICTO DE NO URGENCIAS / NO CIRUGÍAS -->
+      <div class="urgent-notice-box">
+        <div class="urgent-line">
+          <span>❌</span>
+          <span>NO ATIENDO URGENCIAS</span>
+        </div>
+        <div class="urgent-line">
+          <span>❌</span>
+          <span>NO REALIZO CIRUGÍAS</span>
+        </div>
+      </div>
+
+      <div class="turn-instructions-box">
+        <div>🗓️ <strong>Para solicitar turno:</strong> Enviar calles de referencia del domicilio y el motivo de consulta.</div>
+        <div>🗓️ <strong>Para turnos de ecografía:</strong> adjuntame la orden de tu veterinario.</div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         4. SEPARADOR EDITORIAL CON FOTO REAL (portadasr.webp)
+         ========================================================================== -->
+    <article class="editorial-break-card">
+      <img src="./portadasr.webp" alt="Sofía Rivera Veterinaria en Atención" class="editorial-bg-image">
+      <div class="editorial-gradient-overlay"></div>
+      <div class="editorial-card-content">
+        <span class="editorial-pill-tag">Medicina Veterinaria</span>
+        <h3 class="editorial-quote-title">"Cada paciente es único y su atención es 100% focalizada a su situación y entorno."</h3>
+        <p class="editorial-quote-sub">Prevención, bienestar y cuidados de perros y gatos en su propio hogar.</p>
+      </div>
+    </article>
+
+
+    <!-- ==========================================================================
+         5. PILARES DE SU TRABAJO (TEXTOS LITERALES DE SU INSTAGRAM)
+         ========================================================================== -->
+    <section class="philosophy-card">
+      <div class="philosophy-title">Los puntos claves en mi trabajo son:</div>
+      <div class="philosophy-list">
+        <div class="philosophy-item">
+          <span class="bullet-point">•</span>
+          <span>La correcta y fluida comunicación</span>
+        </div>
+        <div class="philosophy-item">
+          <span class="bullet-point">•</span>
+          <span>El entendimiento para con el entorno del paciente</span>
+        </div>
+        <div class="philosophy-item">
+          <span class="bullet-point">•</span>
+          <span>El respeto por los límites de cada paciente</span>
+        </div>
+        <div class="philosophy-item">
+          <span class="bullet-point">•</span>
+          <span>El acompañamiento a cada una de las familias</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         6. ENLACES PRINCIPALES (RESEÑAS, MILKSHAKE, PODCAST, CAFECITO)
+         ========================================================================== -->
+    <nav class="actions-stack" aria-label="Enlaces importantes">
+
+      <!-- RESEÑAS DE GOOGLE (5.0 ★ · 121 OPINIONES) -->
+      <div class="editorial-btn-card btn-card-google" onclick="openReviewsModal(); playTouchHaptic();">
+        <div class="btn-icon-frame">⭐</div>
+        <div class="btn-text-meta">
+          <span class="btn-main-title">Reseñas de Google ›</span>
+          <span class="btn-sub-caption">5,0 ★★★★★ 121 opiniones de clientes</span>
+        </div>
+        <span class="btn-nav-arrow">➔</span>
+      </div>
+
+      <!-- CAPÍTULO PODCAST INFLUVETES (SPOTIFY OFICIAL) -->
+      <a 
+        href="https://open.spotify.com/episode/50un35Me0Kt6k8mgZDnjIZ?si=AOqa7k1IQaOnviqgRIjeVQ&dl_branch=1&nd=1&dlsi=2184813ad1b14a8f" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="editorial-btn-card btn-card-spotify"
+        onclick="playTouchHaptic()"
+      >
+        <div class="btn-icon-frame">🎙️</div>
+        <div class="btn-text-meta">
+          <span class="btn-main-title">Capítulo podcast ‘Influvetes’ ›</span>
+          <span class="btn-sub-caption">Charla y divulgación en Spotify</span>
+        </div>
+        <span class="btn-nav-arrow">➔</span>
+      </a>
+
+      <!-- TALLER SOBRE RAZAS CANINAS -->
+      <a 
+        href="https://wa.me/5491173648009?text=%C2%A1Hola%20Sof%C3%ADa!%20Quisiera%20consultarte%20por%20el%20Taller%20sobre%20razas%20caninas." 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="editorial-btn-card"
+        onclick="playTouchHaptic()"
+      >
+        <div class="btn-icon-frame">🐶</div>
+        <div class="btn-text-meta">
+          <span class="btn-main-title">Taller sobre razas caninas ›</span>
+          <span class="btn-sub-caption">Formación y consulta directa</span>
+        </div>
+        <span class="btn-nav-arrow">➔</span>
+      </a>
+
+      <!-- NOTA EN LA REVISTA 2 + 2 -->
+      <a 
+        href="https://wa.me/5491173648009?text=%C2%A1Hola%20Sof%C3%ADa!%20Quisiera%20leer%20la%20Nota%20en%20la%20revista%202%20%2B%202." 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="editorial-btn-card"
+        onclick="playTouchHaptic()"
+      >
+        <div class="btn-icon-frame">📰</div>
+        <div class="btn-text-meta">
+          <span class="btn-main-title">Nota en la revista 2 + 2 ›</span>
+          <span class="btn-sub-caption">Artículo y prensa especializada</span>
+        </div>
+        <span class="btn-nav-arrow">➔</span>
+      </a>
+
+      <!-- 5 COSAS ANTES DE COMPRAR PERRO DE RAZA -->
+      <a 
+        href="https://www.instagram.com/srveterinaria/" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="editorial-btn-card"
+        onclick="playTouchHaptic()"
+      >
+        <div class="btn-icon-frame">💡</div>
+        <div class="btn-text-meta">
+          <span class="btn-main-title">5 cosas que tenes que saber antes de comprar un perro de raza ›</span>
+          <span class="btn-sub-caption">Guía de tenencia responsable</span>
+        </div>
+        <span class="btn-nav-arrow">➔</span>
+      </a>
+
+      <!-- ¿ME INVITAS UN CAFECITO? (CAFECITO APP OFICIAL) -->
+      <a 
+        href="https://cafecito.app/srveterinaria" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="editorial-btn-card btn-card-cafecito"
+        onclick="playTouchHaptic()"
+      >
+        <div class="btn-icon-frame">☕</div>
+        <div class="btn-text-meta">
+          <span class="btn-main-title">¿Me invitas un cafecito? ›</span>
+          <span class="btn-sub-caption">Colaborá con el proyecto de divulgación</span>
+        </div>
+        <span class="btn-nav-arrow">❤️</span>
+      </a>
+
+    </nav>
+
+
+    <!-- ==========================================================================
+         7. REDES SOCIALES OFICIALES (INSTAGRAM, FACEBOOK, EMAIL)
+         ========================================================================== -->
+    <footer class="social-dock-bar">
+      <!-- Instagram -->
+      <a href="https://instagram.com/srveterinaria" target="_blank" rel="noopener noreferrer" class="social-pill-btn" aria-label="Instagram @srveterinaria" onclick="playTouchHaptic()">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      
+      <!-- Facebook -->
+      <a href="https://facebook.com/srveterinaria" target="_blank" rel="noopener noreferrer" class="social-pill-btn" aria-label="Facebook SR Veterinaria" onclick="playTouchHaptic()">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+
+      <!-- Email Directo -->
+      <a href="mailto:sofiariveraveterinaria@gmail.com" class="social-pill-btn" aria-label="Email de contacto" onclick="playTouchHaptic()">
+        <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+      </a>
+    </footer>
+
+    <!-- FOOTER INSTITUCIONAL -->
+    <div class="hub-footer-block">
+      <div class="footer-stamp-chip">SOFÍA RIVERA · ATENCIÓN EXCLUSIVA A DOMICILIO</div>
+      <div class="footer-credentials-tag">Moreno, Provincia de Buenos Aires · sofiariveraveterinaria@gmail.com</div>
+    </div>
+
+  </div>
+
+
+  <!-- ==========================================================================
+       MODAL VERIFICADO: RESEÑAS DE GOOGLE (SOLICITADO)
+       ========================================================================== -->
+  <div class="modal-backdrop-cover" id="reviewsModalBox" onclick="closeReviewsModal(event)">
+    <div class="modal-review-card" onclick="event.stopPropagation()">
+      <div class="modal-review-header">
+        <h3>Opiniones de Clientes</h3>
+        <button class="btn-close-circle" onclick="closeReviewsModal(event)">✕</button>
+      </div>
+      
+      <div class="modal-review-body">
+        <div class="google-official-badge">
+          <div>
+            <div style="font-family: var(--font-display); font-size: 1.45rem; font-weight: 800; color: var(--brand-blue-night);">5.0 / 5.0</div>
+            <div class="google-stars">★★★★★</div>
+          </div>
+          <div style="text-align: right; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--brand-blue);">
+            121 opiniones<br>en Google
+          </div>
+        </div>
+
+        <div class="client-comment-pill">
+          <div class="comment-user">Mariana G. ⭐★★★★</div>
+          <p class="comment-quote">"Sofi es un amor con los animales. Vino a casa a atender a mi gata que se estresa mucho al salir, y la revisó con una paciencia y dedicación única. Super recomendable."</p>
+        </div>
+
+        <div class="client-comment-pill">
+          <div class="comment-user">Carlos D. ⭐★★★★</div>
+          <p class="comment-quote">"Excelente profesional. Muy clara para explicar todo, puntual y cariñosa con nuestros dos perros. Un alivio contar con atención veterinaria en casa."</p>
+        </div>
+
+        <div class="client-comment-pill">
+          <div class="comment-user">Valeria M. ⭐★★★★</div>
+          <p class="comment-quote">"Genia total Sofi. Hizo la ecografía de control con orden de derivación y se tomó todo el tiempo para que mi perra estuviera tranquila y sin miedo."</p>
+        </div>
+
+        <a 
+          href="https://wa.me/5491173648009?text=%C2%A1Hola%20Sof%C3%ADa!%20Vi%20tus%20opiniones%20en%20Google%20y%20quisiera%20coordinar%20un%20turno." 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn-hero-whatsapp"
+          style="padding: 14px 18px; margin-top: 4px;"
+          onclick="playTouchHaptic()"
+        >
+          <div class="hero-wa-info" style="width: 100%; text-align: center;">
+            <span class="hero-wa-title" style="font-size: 1.05rem;">Coordinar turno por WhatsApp ›</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==========================================================================
+       CONTROLADORES JAVASCRIPT & PARTÍCULAS AMBIENTALES
+       ========================================================================== */
+  <script>
+    // 1. Vibración háptica suave para móviles
+    function playTouchHaptic() {
+      if ('vibrate' in navigator) {
+        try { navigator.vibrate(10); } catch(_) {}
+      }
+    }
+
+    // 2. Control de modal de reseñas de Google
+    const modalBox = document.getElementById('reviewsModalBox');
+    function openReviewsModal() {
+      if (modalBox) {
+        modalBox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    function closeReviewsModal(e) {
+      if (e) e.stopPropagation();
+      if (modalBox) {
+        modalBox.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    // 3. Comprobación en vivo de horarios (Lunes a Viernes de 9 a 18 h - UTC-3 Argentina)
+    function updateScheduleBadge() {
+      const now = new Date();
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const argTime = new Date(utc - (3600000 * 3)); // Hora oficial Argentina
+      const day = argTime.getDay();
+      const hours = argTime.getHours();
+      const pill = document.getElementById('schedulePillElement');
+
+      if (!pill) return;
+
+      if (day >= 1 && day <= 5 && hours >= 9 && hours < 18) {
+        pill.innerText = "Abierto Ahora (9 a 18 h)";
+        pill.style.background = "#E6F4EA";
+        pill.style.color = "#137333";
+      } else {
+        pill.innerText = "Lunes a Viernes (9 a 18 h)";
+        pill.style.background = "var(--brand-blue-mist)";
+        pill.style.color = "var(--brand-blue-deep)";
+      }
+    }
+    updateScheduleBadge();
+    setInterval(updateScheduleBadge, 60000);
+
+    // 4. Canvas de polvo luminoso ambiental de nivel Awwwards (sustituye las animaciones infantiles)
+    const dustCanvas = document.getElementById('ambientDustCanvas');
+    const dustCtx = dustCanvas.getContext('2d');
+    let cWidth, cHeight;
+
+    function resizeDust() {
+      cWidth = dustCanvas.width = window.innerWidth;
+      cHeight = dustCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeDust);
+    resizeDust();
+
+    const particles = [];
+    for (let i = 0; i < 35; i++) {
+      particles.push({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        r: Math.random() * 2.5 + 0.8,
+        vy: -(Math.random() * 0.35 + 0.12),
+        vx: (Math.random() - 0.5) * 0.2,
+        alpha: Math.random() * 0.45 + 0.15,
+        theta: Math.random() * Math.PI * 2
+      });
+    }
+
+    function renderDust() {
+      dustCtx.clearRect(0, 0, cWidth, cHeight);
+      particles.forEach(p => {
+        p.y += p.vy;
+        p.theta += 0.015;
+        p.x += Math.sin(p.theta) * 0.25;
+
+        if (p.y < -10) {
+          p.y = cHeight + 10;
+          p.x = Math.random() * cWidth;
+        }
+
+        dustCtx.fillStyle = `rgba(255, 255, 255, ${p.alpha})`;
+        dustCtx.beginPath();
+        dustCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        dustCtx.fill();
+      });
+      requestAnimationFrame(renderDust);
+    }
+    renderDust();
+
+    // 5. Física de cursor magnético sutil para desktop
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      document.querySelectorAll('.btn-hero-whatsapp, .editorial-btn-card, .logo-monument-frame').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          card.style.transform = `translate(${x * 0.02}px, ${y * 0.02 - 3}px)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+        });
+      });
+    }
+  </script>
+</body>
+</html>
