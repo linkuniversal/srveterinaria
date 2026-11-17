@@ -13,14 +13,14 @@
   <link rel="preload" as="image" href="./srvet.webp">
   <link rel="preload" as="image" href="./portadasr.webp">
 
-  <!-- TIPOGRAFÍAS EDITORIALES DE ALTA COSTURA: FRAUNCES + PLUS JAKARTA SANS + SPACE GROTESK -->
+  <!-- TIPOGRAFÍAS EDITORIALES: FRAUNCES + PLUS JAKARTA SANS + SPACE GROTESK -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================================
-       1. SISTEMA CROMÁTICO EDITORIAL VETERINARIO (PALETA #437A98 & CONTRASTES)
+       1. SISTEMA CROMÁTICO EDITORIAL VETERINARIO (PALETA PLENA #437A98)
        ========================================================================== */
     :root {
       --brand-blue: #437A98;
@@ -28,36 +28,36 @@
       --brand-blue-night: #142833;
       --brand-blue-soft: #5E94B2;
       --brand-blue-mist: #EDF4F8;
-      
+
       --color-bone-pure: #FFFFFF;
       --color-bone-warm: #FAF8F5;
       --color-bone-elevated: #F3EFE8;
-      
+
       --accent-coral: #E66A59;
       --accent-coral-soft: #FDEEEB;
       --accent-coral-dark: #9E2F20;
-      
+
       --accent-sage: #529B85;
       --accent-sage-soft: #E6F4F0;
       --accent-gold: #C99645;
-      
+
       --text-main: #13242E;
       --text-body: #344C5A;
       --text-muted: #678191;
       --text-light: #F4F8FB;
 
-      --border-light: rgba(255, 255, 255, 0.45);
+      --border-light: rgba(255, 255, 255, 0.55);
       --border-hairline: rgba(67, 122, 152, 0.16);
-      
+
       --font-display: 'Fraunces', Georgia, serif;
       --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
       --font-mono: 'Space Grotesk', monospace;
 
-      --shadow-subtle: 0 10px 30px -8px rgba(20, 40, 51, 0.10), 0 2px 6px rgba(0, 0, 0, 0.04);
-      --shadow-sculpture: 0 20px 48px -12px rgba(20, 40, 51, 0.18), 0 4px 12px rgba(0, 0, 0, 0.04);
-      --shadow-hover: 0 26px 54px -10px rgba(20, 40, 51, 0.24);
-      
-      --radius-monument: 36px;
+      --shadow-subtle: 0 12px 32px -8px rgba(15, 34, 46, 0.16), 0 2px 8px rgba(0, 0, 0, 0.05);
+      --shadow-sculpture: 0 22px 50px -12px rgba(15, 34, 46, 0.24), 0 6px 16px rgba(0, 0, 0, 0.06);
+      --shadow-hover: 0 26px 56px -10px rgba(15, 34, 46, 0.30);
+
+      --radius-monument: 32px;
       --radius-card: 24px;
       --radius-pill: 9999px;
       --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
@@ -86,53 +86,120 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0 14px 64px;
+      padding: 0 14px 68px;
       overflow-x: hidden;
       position: relative;
       letter-spacing: -0.012em;
     }
 
     /* ==========================================================================
-       2. FONDO CINEMATOGRÁFICO DE LÍNEA CONTINUA (ARTE VECTORIAL EDITORIAL)
+       2. FONDO PLENO #437A98 + ANIMALES BLANCOS VECTORIALES EN MOVIMIENTO SUAVE
        ========================================================================== */
-    .bg-mesh-canvas {
+    .bg-solid-canvas {
       position: fixed;
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      background:
-        radial-gradient(circle at 18% 18%, rgba(94, 148, 178, 0.85) 0%, transparent 55%),
-        radial-gradient(circle at 82% 82%, rgba(20, 40, 51, 0.95) 0%, transparent 60%),
-        linear-gradient(180deg, #437A98 0%, #2D566D 100%);
+      background-color: var(--brand-blue);
     }
 
-    /* Pattern continuo geométrico de líneas orgánicas de contorno animal */
-    .bg-fine-pattern {
+    /* Velo de luz cenital muy sutil (sin oscurecer costados ni hacer degradé de izq a der) */
+    .bg-top-luminance {
       position: fixed;
-      inset: 0;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      max-width: 720px;
+      height: 300px;
       z-index: 1;
       pointer-events: none;
-      opacity: 0.055;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath fill='none' stroke='%23FFFFFF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' d='M25 45 c-8-12-2-25 10-25 c8 0 14 6 18 12 c4-6 10-12 18-12 c12 0 18 13 10 25 c-12 18-28 32-28 32 s-16-14-28-32 Z'/%3E%3Ccircle cx='95' cy='30' r='5' fill='%23FFFFFF'/%3E%3Ccircle cx='108' cy='40' r='3.5' fill='%23FFFFFF'/%3E%3Ccircle cx='104' cy='52' r='4' fill='%23FFFFFF'/%3E%3Cpath fill='none' stroke='%23FFFFFF' stroke-width='1.4' stroke-linecap='round' d='M88 78 c-6-8-18-8-24 0 c-4 5-2 15 4 19 c8 6 22 2 24-7 c1-4-1-9-4-12 Z'/%3E%3Cpath fill='none' stroke='%23FFFFFF' stroke-width='1.4' stroke-linecap='round' d='M18 95 Q35 80 50 95 T85 95'/%3E%3C/svg%3E");
-      background-size: 120px 120px;
-      animation: ambientPatternFloat 55s linear infinite;
+      background: radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.03) 55%, transparent 100%);
     }
 
-    @keyframes ambientPatternFloat {
-      0% { background-position: 0 0; }
-      100% { background-position: 120px 240px; }
+    /* Patrón amplio 320x320 de perros, gatos y huellas blancas bien proporcionadas */
+    .bg-animals-pattern {
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cg fill='%23FFFFFF' fill-opacity='0.065' stroke='%23FFFFFF' stroke-opacity='0.20' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3C!-- Gato sentado (arriba izquierda) --%3E%3Cpath d='M58 54 L52 32 L68 43 Q75 41 82 43 L98 32 L92 54 C97 62 95 72 88 78 C95 90 96 108 90 118 L60 118 C54 108 55 90 62 78 C55 72 53 62 58 54 Z'/%3E%3Cpath fill='none' d='M90 115 C107 115 113 100 106 90 C102 85 97 89 100 94'/%3E%3C!-- Rostro felino minimalista (arriba derecha) --%3E%3Cpath d='M215 62 L210 38 L228 50 Q240 47 252 50 L270 38 L265 62 C272 74 266 90 240 92 C214 90 208 74 215 62 Z'/%3E%3Cpath fill='none' d='M202 70 L218 72 M201 78 L218 77 M278 70 L262 72 M279 78 L262 77'/%3E%3Cpath fill='none' d='M225 68 Q230 64 235 68 M245 68 Q250 64 255 68'/%3E%3C!-- Perro alegre de perfil (abajo derecha) --%3E%3Cpath d='M225 190 C234 188 242 192 246 198 L262 200 C267 201 268 208 263 211 L249 213 C247 222 245 232 246 244 L248 268 C248 273 241 273 240 268 L238 250 C228 253 216 253 208 248 L205 268 C204 273 197 273 197 268 L198 244 C191 240 186 232 186 223 C176 218 172 206 178 198 C182 204 185 212 192 215 C202 212 212 208 216 200 C217 194 220 191 225 190 Z'/%3E%3Cpath d='M226 196 C219 198 216 210 221 218 C225 222 231 217 231 209 C231 202 229 196 226 196 Z'/%3E%3C!-- Huella 1 (abajo izquierda) --%3E%3Cg transform='translate(80,242) rotate(-14)'%3E%3Cpath d='M0 -4 C-10 -4 -16 5 -14 13 C-12 19 -5 20 0 18 C5 20 12 19 14 13 C16 5 10 -4 0 -4 Z'/%3E%3Ccircle cx='-16' cy='-11' r='4.5'/%3E%3Ccircle cx='-6' cy='-18' r='4.5'/%3E%3Ccircle cx='6' cy='-18' r='4.5'/%3E%3Ccircle cx='16' cy='-11' r='4.5'/%3E%3C/g%3E%3C!-- Huella 2 (centro) --%3E%3Cg transform='translate(154,148) rotate(16) scale(0.72)'%3E%3Cpath d='M0 -4 C-10 -4 -16 5 -14 13 C-12 19 -5 20 0 18 C5 20 12 19 14 13 C16 5 10 -4 0 -4 Z'/%3E%3Ccircle cx='-16' cy='-11' r='4.5'/%3E%3Ccircle cx='-6' cy='-18' r='4.5'/%3E%3Ccircle cx='6' cy='-18' r='4.5'/%3E%3Ccircle cx='16' cy='-11' r='4.5'/%3E%3C/g%3E%3C!-- Destellos sutiles --%3E%3Cpath stroke='none' fill-opacity='0.18' d='M152 54 L154 60 L160 62 L154 64 L152 70 L150 64 L144 62 L150 60 Z'/%3E%3Cpath stroke='none' fill-opacity='0.16' d='M282 138 L283.5 142.5 L288 144 L283.5 145.5 L282 150 L280.5 145.5 L276 144 L280.5 142.5 Z'/%3E%3Ccircle cx='34' cy='168' r='2.5' stroke='none' fill-opacity='0.18'/%3E%3Ccircle cx='146' cy='278' r='2.5' stroke='none' fill-opacity='0.18'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 320px 320px;
+      background-repeat: repeat;
+      animation: smoothAnimalDrift 36s linear infinite;
+      will-change: background-position;
+    }
+
+    @keyframes smoothAnimalDrift {
+      0%   { background-position: 0px 0px; }
+      100% { background-position: 320px 0px; }
     }
 
     /* Partículas luminosas ambientales flotando con física */
     #ambientDustCanvas {
       position: fixed;
       inset: 0;
-      z-index: 2;
+      z-index: 3;
       pointer-events: none;
     }
 
     /* ==========================================================================
-       3. CONTENEDOR CENTRAL MAESTRO (RESPONSIVE DE ALTA PRECISIÓN)
+       3. KEYFRAMES DE MOVIMIENTO CONTINUO Y REFLEJOS DE LUZ (NIVEL AWWWARDS)
+       ========================================================================== */
+    @keyframes slowVitalityFloat {
+      0%   { transform: translateY(0px) scale(1); }
+      50%  { transform: translateY(-4px) scale(1.016); }
+      100% { transform: translateY(0px) scale(1); }
+    }
+
+    @keyframes lightSweepDiagonal {
+      0%   { transform: translateX(-170%) skewX(-24deg); opacity: 0; }
+      12%  { opacity: 0.72; }
+      32%  { transform: translateX(240%) skewX(-24deg); opacity: 0; }
+      100% { transform: translateX(240%) skewX(-24deg); opacity: 0; }
+    }
+
+    @keyframes organicWave {
+      0%   { transform: translateY(0px) rotate(0deg) skewY(0deg); }
+      25%  { transform: translateY(-3.5px) rotate(1deg) skewY(0.6deg); }
+      50%  { transform: translateY(1.5px) rotate(-0.8deg) skewY(-0.5deg); }
+      75%  { transform: translateY(-2px) rotate(0.6deg) skewY(0.3deg); }
+      100% { transform: translateY(0px) rotate(0deg) skewY(0deg); }
+    }
+
+    @keyframes softWhatsappGlow {
+      0%, 100% {
+        box-shadow: 0 14px 32px -6px rgba(34, 197, 94, 0.34), 0 0 0 0 rgba(34, 197, 94, 0);
+      }
+      50% {
+        box-shadow: 0 18px 42px -4px rgba(34, 197, 94, 0.50), 0 0 0 4px rgba(255, 255, 255, 0.28);
+      }
+    }
+
+    @keyframes ambientAuraBreath {
+      0%, 100% { opacity: 0.35; transform: scale(0.96); }
+      50%      { opacity: 0.85; transform: scale(1.1); }
+    }
+
+    @keyframes pulseActive {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    /* Aparición escalonada al scrollear */
+    .reveal-block {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.65s var(--ease-spring), transform 0.65s var(--ease-spring);
+    }
+
+    .reveal-block.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       4. CONTENEDOR CENTRAL MAESTRO
        ========================================================================== */
     .master-editorial-shell {
       position: relative;
@@ -143,133 +210,117 @@
       flex-direction: column;
       gap: 16px;
       margin: 0 auto;
-      padding-top: 20px;
+      padding-top: 26px;
     }
 
     /* ==========================================================================
-       4. CABECERA MONUMENTAL: LOGO S.R. ESCULPIDO + FOTO PRESENTACIÓN
+       5. CABECERA SIMÉTRICA: LOGO SUELTO ARRIBA -> FOTO ESTÉTICA -> CARD ACOTADA
        ========================================================================== */
-    .hero-presentation-card {
-      background: var(--color-bone-pure);
-      border-radius: var(--radius-monument);
-      border: 2px solid var(--border-light);
-      padding: 28px 24px 24px;
-      box-shadow: var(--shadow-sculpture);
-      position: relative;
-      overflow: hidden;
+    .hero-top-showcase {
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
+      gap: 0;
     }
 
-    /* Marcas de agua lineales suaves inspiradas en Milkshake */
-    .hero-presentation-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 140px;
-      background: repeating-linear-gradient(
-        180deg,
-        rgba(67, 122, 152, 0.05),
-        rgba(67, 122, 152, 0.05) 2px,
-        transparent 2px,
-        transparent 16px
-      );
-      border-bottom: 1.5px solid rgba(67, 122, 152, 0.08);
-      pointer-events: none;
-    }
-
-    /* Dúo monumental: Logo S.R. SVG esculpido al lado de foto srvet.webp */
-    .brand-monument-row {
-      position: relative;
-      z-index: 3;
+    /* Logo S.R. suelto arriba de todo, grande y en blanco puro sin recuadro */
+    .logo-free-stage {
       width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1.08fr;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 20px;
-      padding: 4px 0;
-    }
-
-    .logo-monument-frame {
+      max-width: 240px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      background: var(--brand-blue-mist);
-      border-radius: 28px;
-      padding: 18px 14px;
-      border: 1.5px solid rgba(67, 122, 152, 0.14);
-      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.02);
-      transition: transform 0.3s var(--ease-spring);
-    }
-
-    .logo-monument-frame:hover {
-      transform: scale(1.02);
+      cursor: pointer;
+      animation: slowVitalityFloat 7s ease-in-out infinite alternate;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 5;
     }
 
     .brand-logo-svg {
       width: 100%;
-      max-width: 155px;
       height: auto;
       display: block;
-      filter: drop-shadow(0 6px 14px rgba(34, 66, 84, 0.22));
+      filter: drop-shadow(0 8px 20px rgba(15, 34, 46, 0.25));
+      transition: transform 0.35s var(--ease-spring);
     }
 
-    .logo-stamp-caption {
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      font-weight: 700;
-      color: var(--brand-blue-deep);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-top: 8px;
+    .logo-free-stage:hover .brand-logo-svg {
+      transform: scale(1.03);
     }
 
-    .doctor-avatar-frame {
-      position: relative;
+    /* Reflejo sutil en cristal debajo del logo (estilo hummusdeco.html / PN.html) */
+    .logo-glass-reflection {
       width: 100%;
-      aspect-ratio: 1 / 1;
-      max-width: 190px;
-      margin: 0 auto;
-      border-radius: 28px;
-      padding: 4px;
-      background: linear-gradient(135deg, var(--brand-blue), var(--accent-coral));
-      box-shadow: 0 12px 28px rgba(34, 66, 84, 0.20);
+      height: 22px;
+      margin-top: -2px;
+      overflow: hidden;
+      opacity: 0.16;
+      transform: scaleY(-0.65);
+      filter: blur(0.8px);
+      mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    /* Retrato de Sofía debajo del logo, centrado y simétrico superponiéndose con elegancia */
+    .doctor-portrait-stage {
+      position: relative;
+      z-index: 6;
+      width: 168px;
+      height: 168px;
+      margin-bottom: -44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .doctor-portrait-ring {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      padding: 5px;
+      background: linear-gradient(145deg, #FFFFFF 0%, #E3EFF6 100%);
+      box-shadow: 0 16px 36px rgba(15, 34, 46, 0.28), 0 0 0 4px rgba(255, 255, 255, 0.22);
+      transition: transform 0.35s var(--ease-spring);
+    }
+
+    .doctor-portrait-stage:hover .doctor-portrait-ring {
+      transform: scale(1.03);
     }
 
     .doctor-avatar-img {
       width: 100%;
       height: 100%;
-      border-radius: 24px;
+      border-radius: 50%;
       object-fit: cover;
-      object-position: center 25%;
+      object-position: center 22%;
       display: block;
       background: var(--brand-blue-mist);
-      border: 2px solid var(--color-bone-pure);
+      border: 2px solid var(--brand-blue-mist);
     }
 
     .live-status-bubble {
       position: absolute;
-      bottom: -6px;
-      right: -6px;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
       background: var(--color-bone-pure);
       border: 2px solid #22C55E;
       border-radius: var(--radius-pill);
-      padding: 4px 10px;
+      padding: 4px 12px;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+      white-space: nowrap;
+      box-shadow: 0 8px 18px rgba(15, 34, 46, 0.18);
       font-family: var(--font-mono);
-      font-size: 0.64rem;
+      font-size: 0.65rem;
       font-weight: 700;
       color: #15803D;
+      z-index: 7;
     }
 
     .pulse-dot {
@@ -281,12 +332,38 @@
       animation: pulseActive 2s infinite ease-in-out;
     }
 
-    @keyframes pulseActive {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.8); }
+    /* Primera tarjeta blanca acotada y perfectamente simétrica */
+    .hero-identity-card {
+      position: relative;
+      z-index: 4;
+      width: 100%;
+      background: var(--color-bone-pure);
+      border-radius: var(--radius-monument);
+      border: 2px solid var(--border-light);
+      padding: 62px 22px 22px;
+      box-shadow: var(--shadow-sculpture);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
 
-    /* Bloque Tipográfico de Identidad */
+    /* Reflejo suave en la tarjeta de bienvenida */
+    .hero-identity-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 65%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+      pointer-events: none;
+      z-index: 2;
+      animation: lightSweepDiagonal 11s ease-in-out infinite;
+      animation-delay: 0.5s;
+    }
+
     .hero-identity-block {
       position: relative;
       z-index: 3;
@@ -294,40 +371,41 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
     }
 
     .hero-name-title {
       font-family: var(--font-display);
-      font-size: clamp(1.4rem, 5.2vw, 1.8rem);
+      font-size: clamp(1.5rem, 5.4vw, 1.85rem);
       font-weight: 800;
       color: var(--brand-blue-night);
-      line-height: 1.15;
+      line-height: 1.12;
       letter-spacing: -0.02em;
     }
 
     .hero-specialty-subtitle {
       font-family: var(--font-sans);
-      font-size: 0.95rem;
+      font-size: 0.90rem;
       font-weight: 700;
       color: var(--brand-blue);
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.08em;
     }
 
-    /* Badges de credenciales con wave suave */
+    /* Badges de credenciales con flameado armónico (organicWave de PN.html) */
     .credentials-pills-row {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 7px;
       flex-wrap: wrap;
-      margin: 8px 0 14px;
+      margin: 10px 0 14px;
+      perspective: 800px;
     }
 
     .cred-badge {
       font-family: var(--font-mono);
-      font-size: 0.68rem;
+      font-size: 0.67rem;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -335,8 +413,18 @@
       border-radius: var(--radius-pill);
       background: var(--brand-blue-mist);
       color: var(--brand-blue-deep);
-      border: 1px solid rgba(67, 122, 152, 0.18);
+      border: 1px solid rgba(67, 122, 152, 0.20);
+      box-shadow: 0 3px 8px rgba(34, 66, 84, 0.05);
+      transform-origin: center center;
+      animation: organicWave 4.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+      will-change: transform;
     }
+
+    .cred-badge:nth-child(1) { animation-delay: 0s; }
+    .cred-badge:nth-child(2) { animation-delay: 0.25s; }
+    .cred-badge:nth-child(3) { animation-delay: 0.5s; }
+    .cred-badge:nth-child(4) { animation-delay: 0.75s; }
+    .cred-badge:nth-child(5) { animation-delay: 1.0s; }
 
     .cred-badge.gold {
       background: #FFFBEB;
@@ -344,13 +432,12 @@
       border-color: #FCD34D;
     }
 
-    /* Bloque exacto del perfil y Milkshake */
     .milkshake-welcome-slab {
       width: 100%;
-      background: linear-gradient(135deg, rgba(253, 238, 235, 0.7) 0%, rgba(255, 255, 255, 0.9) 100%);
+      background: linear-gradient(135deg, rgba(253, 238, 235, 0.72) 0%, rgba(255, 255, 255, 0.95) 100%);
       border: 1.5px solid rgba(230, 106, 89, 0.25);
-      border-radius: 20px;
-      padding: 14px 18px;
+      border-radius: 18px;
+      padding: 13px 16px;
       display: flex;
       flex-direction: column;
       gap: 3px;
@@ -358,22 +445,22 @@
 
     .milkshake-heading {
       font-family: var(--font-display);
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       font-weight: 700;
       color: var(--accent-coral);
     }
 
     .milkshake-sub {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       color: var(--brand-blue-deep);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
     }
 
     /* ==========================================================================
-           5. HERO CARD PRINCIPAL: SOLICITAR TURNO POR WHATSAPP
-           ========================================================================== */
+       6. HERO CARD PRINCIPAL: SOLICITAR TURNO POR WHATSAPP
+       ========================================================================== */
     .btn-hero-whatsapp {
       background: var(--color-bone-pure);
       border: 2.5px solid #22C55E;
@@ -385,32 +472,28 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      box-shadow: 0 16px 36px -8px rgba(34, 197, 94, 0.28);
       position: relative;
       overflow: hidden;
       transition: all 0.28s var(--ease-spring);
+      animation: softWhatsappGlow 5s ease-in-out infinite;
     }
 
     .btn-hero-whatsapp::before {
       content: '';
       position: absolute;
       top: 0;
-      left: -130%;
+      left: 0;
       width: 75%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65), transparent);
-      transform: skewX(-24deg);
-      animation: lightSheen 6s infinite ease-in-out;
-    }
-
-    @keyframes lightSheen {
-      0%, 45% { left: -130%; }
-      75%, 100% { left: 160%; }
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.78), transparent);
+      pointer-events: none;
+      z-index: 2;
+      animation: lightSweepDiagonal 6.8s ease-in-out infinite;
+      animation-delay: 1s;
     }
 
     .btn-hero-whatsapp:hover {
-      transform: translateY(-3px) scale(1.01);
-      box-shadow: 0 22px 46px -6px rgba(34, 197, 94, 0.38);
+      transform: translateY(-3px) scale(1.012);
       border-color: #16A34A;
     }
 
@@ -423,6 +506,8 @@
       flex-direction: column;
       gap: 2px;
       text-align: left;
+      position: relative;
+      z-index: 3;
     }
 
     .hero-wa-beacon {
@@ -435,6 +520,16 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
+    }
+
+    .hero-wa-beacon::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22C55E;
+      box-shadow: 0 0 8px #22C55E;
+      animation: pulseActive 1.8s infinite;
     }
 
     .hero-wa-title {
@@ -461,12 +556,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 22px rgba(34, 197, 94, 0.4);
-      transition: transform 0.28s var(--ease-spring);
+      box-shadow: 0 8px 22px rgba(34, 197, 94, 0.42);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      z-index: 3;
     }
 
     .btn-hero-whatsapp:hover .wa-bubble-circle {
-      transform: scale(1.1) rotate(8deg);
+      transform: scale(1.12) rotate(10deg);
     }
 
     .wa-bubble-circle svg {
@@ -476,8 +573,8 @@
     }
 
     /* ==========================================================================
-           6. TARJETA CONDICIONES & PROTOCOLO DE ATENCIÓN (DATOS REALES)
-           ========================================================================== */
+       7. TARJETA CONDICIONES & PROTOCOLO DE ATENCIÓN
+       ========================================================================== */
     .conditions-card {
       background: var(--color-bone-pure);
       border-radius: var(--radius-card);
@@ -488,6 +585,22 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .conditions-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 65%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+      pointer-events: none;
+      z-index: 2;
+      animation: lightSweepDiagonal 12s ease-in-out infinite;
+      animation-delay: 2.5s;
     }
 
     .conditions-head {
@@ -496,6 +609,8 @@
       justify-content: space-between;
       border-bottom: 1.5px dashed rgba(67, 122, 152, 0.18);
       padding-bottom: 8px;
+      position: relative;
+      z-index: 3;
     }
 
     .conditions-title {
@@ -526,9 +641,10 @@
       line-height: 1.45;
       font-weight: 600;
       color: var(--text-body);
+      position: relative;
+      z-index: 3;
     }
 
-    /* Advertencia no urgencias - Soft pero contundente */
     .urgent-notice-box {
       background: var(--accent-coral-soft);
       border: 1.5px solid rgba(230, 106, 89, 0.35);
@@ -537,6 +653,8 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
+      position: relative;
+      z-index: 3;
     }
 
     .urgent-line {
@@ -559,89 +677,67 @@
       line-height: 1.4;
       font-weight: 600;
       color: var(--brand-blue-deep);
+      position: relative;
+      z-index: 3;
     }
 
     /* ==========================================================================
-           7. SEPARADOR EDITORIAL CON FOTO REAL (portadasr.webp)
-           ========================================================================== */
-    .editorial-break-card {
+       8. PORTADA LIMPIA (portadasr.webp) SIN TEXTO ENCIMA + EPÍGRAFE SUTIL ABAJO
+       ========================================================================== */
+    .editorial-photo-card {
       width: 100%;
-      height: clamp(230px, 42vh, 290px);
-      border-radius: 28px;
-      position: relative;
-      overflow: hidden;
+      background: var(--color-bone-pure);
+      border-radius: 26px;
       border: 2px solid var(--border-light);
       box-shadow: var(--shadow-sculpture);
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      padding: 20px 22px;
-      color: #FFFFFF;
-      text-decoration: none;
+      transition: transform 0.35s var(--ease-spring), box-shadow 0.35s ease;
+    }
+
+    .editorial-photo-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .editorial-photo-frame {
+      width: 100%;
+      overflow: hidden;
+      background: var(--color-bone-pure);
+      position: relative;
     }
 
     .editorial-bg-image {
-      position: absolute;
-      inset: 0;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 35%;
-      filter: brightness(0.85) contrast(1.05);
+      height: auto;
+      display: block;
       transition: transform 0.6s var(--ease-spring);
     }
 
-    .editorial-break-card:hover .editorial-bg-image {
-      transform: scale(1.04);
+    .editorial-photo-card:hover .editorial-bg-image {
+      transform: scale(1.025);
     }
 
-    .editorial-gradient-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(20,40,51,0.08) 0%, rgba(20,40,51,0.45) 45%, rgba(20,40,51,0.92) 100%);
-      z-index: 2;
+    .editorial-epigraph-bar {
+      padding: 11px 18px;
+      background: var(--color-bone-warm);
+      border-top: 1px solid var(--border-hairline);
+      text-align: center;
     }
 
-    .editorial-card-content {
-      position: relative;
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .editorial-pill-tag {
-      align-self: flex-start;
-      font-family: var(--font-mono);
-      font-size: 0.64rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      background: rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(8px);
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      margin-bottom: 4px;
-    }
-
-    .editorial-quote-title {
+    .editorial-epigraph-text {
       font-family: var(--font-display);
-      font-size: clamp(1.15rem, 4.2vw, 1.45rem);
-      font-weight: 800;
-      line-height: 1.2;
-      color: #FFFFFF;
+      font-style: italic;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--brand-blue-deep);
+      line-height: 1.35;
     }
 
-    .editorial-quote-sub {
-      font-size: 0.80rem;
-      color: rgba(255, 255, 255, 0.9);
-      font-weight: 500;
-    }
-
-    /* =========================================================
-       8. PILARES DE ATENCIÓN DE SOFÍA (TEXTOS LITERALES)
-       ========================================================= */
+    /* ==========================================================================
+       9. PILARES DE ATENCIÓN DE SOFÍA
+       ========================================================================== */
     .philosophy-card {
       background: var(--color-bone-pure);
       border-radius: var(--radius-card);
@@ -651,6 +747,22 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .philosophy-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 65%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+      pointer-events: none;
+      z-index: 2;
+      animation: lightSweepDiagonal 13.5s ease-in-out infinite;
+      animation-delay: 4.5s;
     }
 
     .philosophy-title {
@@ -660,12 +772,16 @@
       color: var(--brand-blue-night);
       border-bottom: 1.5px dashed rgba(67, 122, 152, 0.18);
       padding-bottom: 8px;
+      position: relative;
+      z-index: 3;
     }
 
     .philosophy-list {
       display: flex;
       flex-direction: column;
       gap: 8px;
+      position: relative;
+      z-index: 3;
     }
 
     .philosophy-item {
@@ -686,8 +802,8 @@
     }
 
     /* ==========================================================================
-           9. BOTONES DE ACCIÓN EDITORIALES (MILKSHAKE + GOOGLE + SPOTIFY)
-           ========================================================================== */
+       10. BOTONES DE ACCIÓN EDITORIALES CON REFLEJOS ESCALONADOS
+       ========================================================================== */
     .actions-stack {
       display: flex;
       flex-direction: column;
@@ -707,9 +823,32 @@
       text-decoration: none;
       color: var(--text-main);
       box-shadow: var(--shadow-subtle);
+      position: relative;
+      overflow: hidden;
       transition: all 0.28s var(--ease-spring);
       cursor: pointer;
     }
+
+    /* Reflejo diagonal continuo en todos los botones con delays escalonados */
+    .editorial-btn-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 70%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.70), transparent);
+      pointer-events: none;
+      z-index: 2;
+      animation: lightSweepDiagonal 9.5s ease-in-out infinite;
+    }
+
+    .editorial-btn-card:nth-child(1)::before { animation-delay: 1.4s; }
+    .editorial-btn-card:nth-child(2)::before { animation-delay: 3.1s; }
+    .editorial-btn-card:nth-child(3)::before { animation-delay: 4.8s; }
+    .editorial-btn-card:nth-child(4)::before { animation-delay: 6.5s; }
+    .editorial-btn-card:nth-child(5)::before { animation-delay: 8.2s; }
+    .editorial-btn-card:nth-child(6)::before { animation-delay: 9.8s; }
 
     .editorial-btn-card:hover {
       transform: translateY(-3px);
@@ -732,11 +871,13 @@
       background: var(--brand-blue-mist);
       color: var(--brand-blue);
       font-size: 1.25rem;
-      transition: transform 0.25s ease;
+      transition: transform 0.28s var(--ease-spring);
+      position: relative;
+      z-index: 3;
     }
 
     .editorial-btn-card:hover .btn-icon-frame {
-      transform: scale(1.08) rotate(3deg);
+      transform: scale(1.1) rotate(5deg);
     }
 
     .btn-text-meta {
@@ -745,6 +886,8 @@
       flex: 1;
       text-align: left;
       gap: 2px;
+      position: relative;
+      z-index: 3;
     }
 
     .btn-main-title {
@@ -767,16 +910,30 @@
       font-weight: 700;
       color: var(--brand-blue);
       transition: transform 0.25s ease;
+      position: relative;
+      z-index: 3;
     }
 
     .editorial-btn-card:hover .btn-nav-arrow {
       transform: translateX(4px);
     }
 
-    /* ESTILO RESEÑAS GOOGLE */
+    /* ESTILO RESEÑAS GOOGLE CON AURA SUAVE */
     .btn-card-google {
-      background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
-      border-color: rgba(59, 130, 246, 0.35);
+      background: linear-gradient(135deg, #FFFFFF 0%, #F4F8FF 100%);
+      border-color: rgba(59, 130, 246, 0.38);
+    }
+    .btn-card-google::after {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.14) 0%, transparent 70%);
+      pointer-events: none;
+      animation: ambientAuraBreath 6s ease-in-out infinite;
     }
     .btn-card-google .btn-icon-frame {
       background: #EFF6FF;
@@ -804,8 +961,8 @@
     }
 
     /* ==========================================================================
-           10. BARRA DE REDES SOCIALES OFICIALES
-           ========================================================================== */
+       11. BARRA DE REDES SOCIALES OFICIALES
+       ========================================================================== */
     .social-dock-bar {
       display: flex;
       align-items: center;
@@ -830,7 +987,7 @@
     }
 
     .social-pill-btn:hover {
-      transform: translateY(-3px);
+      transform: translateY(-3px) scale(1.06);
       border-color: var(--brand-blue);
       color: var(--brand-blue);
       box-shadow: var(--shadow-hover);
@@ -843,8 +1000,8 @@
     }
 
     /* ==========================================================================
-           11. MODAL VERIFICADO DE RESEÑAS DE GOOGLE (5.0 ★ · 121 OPINIONES)
-           ========================================================================== */
+       12. MODAL VERIFICADO DE RESEÑAS DE GOOGLE
+       ========================================================================== */
     .modal-backdrop-cover {
       position: fixed;
       inset: 0;
@@ -964,7 +1121,7 @@
 
     /* FOOTER EDITORIAL */
     .hub-footer-block {
-      margin-top: 14px;
+      margin-top: 12px;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -973,8 +1130,10 @@
     }
 
     .footer-stamp-chip {
-      background: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.22);
       backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.35);
       padding: 6px 16px;
       border-radius: var(--radius-pill);
       color: var(--color-bone-pure);
@@ -986,65 +1145,72 @@
 
     .footer-credentials-tag {
       font-size: 0.72rem;
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(255, 255, 255, 0.88);
       font-weight: 500;
     }
   </style>
 </head>
 <body>
 
-  <!-- FONDO CON GRADIENTES AMBIENTALES Y PATTERN CONTINUO DE TRAZO FINO -->
-  <div class="bg-mesh-canvas" aria-hidden="true"></div>
-  <div class="bg-fine-pattern" aria-hidden="true"></div>
+  <!-- FONDO PLENO #437A98 + LUZ CENITAL SUAVE + ANIMALES BLANCOS ANIMADOS -->
+  <div class="bg-solid-canvas" aria-hidden="true"></div>
+  <div class="bg-top-luminance" aria-hidden="true"></div>
+  <div class="bg-animals-pattern" aria-hidden="true"></div>
   <canvas id="ambientDustCanvas" aria-hidden="true"></canvas>
 
   <!-- CONTENEDOR MAESTRO CENTRAL -->
-  <div class="master-editorial-shell">
+  <main class="master-editorial-shell">
 
     <!-- ==========================================================================
-         1. HERO MONUMENTAL: LOGO S.R. (SVG) + FOTO OFICIAL (srvet.webp)
+         1. CABECERA SIMÉTRICA: LOGO SUELTO BLANCO -> FOTO DE SOFÍA -> CARD ACOTADA
          ========================================================================== -->
-    <header class="hero-presentation-card">
-      
-      <div class="brand-monument-row">
-        
-        <!-- Logo vectorial oficial S.R. con jerarquía monumental -->
-        <div class="logo-monument-frame" onclick="playTouchHaptic()">
-          <svg class="brand-logo-svg" viewBox="0 0 655.17 384.81" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#437A98" d="M120.96,206.08c-3.8-1.66-7.16-3.1-10.51-4.6-14.64-6.54-28.42-14.86-40.56-26.36-13.7-12.96-24.33-28.4-29.38-48.22-4.05-15.9-2.54-31.41,3-46.44,8.14-22.09,21.93-38.63,39.74-50.99,19.45-13.5,40.71-21.18,63.04-25.46C158.84,1.62,171.48.24,184.21.03c26.8-.44,52.97,3.22,77.68,15.95,10.93,5.63,20.92,12.88,28.6,23.64,6.91,9.68,11.29,20.52,10.88,33.29-.56,17.26-7.74,30.07-20.66,38.75-9.17,6.17-19.31,9.05-29.74,10.89-13.95,2.47-28,1.89-42.03,1.98-2.28.01-4.55,0-6.89.26,4.65,1.72,9.32,3.39,13.96,5.17,20.1,7.71,39.16,17.67,55.19,33.95,16.63,16.89,25.28,37.87,24.24,63.47-.57,14.15-4.18,27.57-8.96,40.56-11.88,32.29-29.67,59.49-54.33,80.56-19.72,16.85-42.11,26.76-66.18,32.03-17.69,3.88-35.57,5.11-53.53,3.74-21.7-1.65-42.84-6.3-62.83-16.47-15.76-8.02-29.49-19.01-39.25-35.62-14.39-24.48-13.7-53.7,1.72-77.39,8.89-13.66,20.71-23.02,34.04-30.13,12.85-6.86,26.35-11.44,40.35-13.86,10.5-1.82,21.09-2.94,31.64-4.37.81-.11,1.62-.2,2.87-.35Z"/>
-            <path fill="#437A98" d="M483.3,206.22c4.67.71,9.34,1.38,14,2.13,27.1,4.37,53.65,11.29,79.17,22.79,17.46,7.87,33.98,17.67,48.64,31.2,8.86,8.18,16.74,17.41,22.49,28.74,11.34,22.31,9.71,44.1-3.28,64.55-12.49,19.68-30,29.31-51.29,29.04-13.15-.16-25.34-5.18-36.96-12-15.23-8.95-28.39-21.09-40.47-34.75-10.36-11.71-20.38-23.81-30.56-35.72-2.94-3.45-5.93-6.85-9.27-9.96,1.48,4.64,3.02,9.27,4.45,13.94,3.48,11.36,5.78,22.97,5.13,35.1-.59,11.01-3.47,21.21-9.66,29.77-8.35,11.57-19.44,15.06-32.18,13.09-22.86-3.53-40.89-16.74-55.77-36.17-12.66-16.53-22.45-35.15-30.57-54.97-6.54-15.97-11.86-32.42-15.24-49.64-2.38-12.16-3.84-24.47-3.47-36.96.46-15.37,3.36-30.26,7.32-44.9,7.94-29.39,20.2-56.36,35.56-81.53,11.37-18.64,24.65-35.3,40.56-49.11,18.6-16.15,39.21-27.09,62.61-29.97,25.57-3.16,49.27,2.77,69.82,21.21,13.8,12.38,21.91,28.74,24.87,48.43,2.91,19.32-.38,37.62-7.27,55.24-9.06,23.16-23.55,41.03-41.78,55.22-13.67,10.64-28.76,17.82-44.37,23.72-.85.32-1.69.68-2.53,1.02l.04.48Z"/>
-            <path fill="#437A98" d="M352.36,345.54c.03,19.18-14.24,35.06-31.53,35.08-16.56.02-31.03-16.11-31.12-34.68-.09-19.17,14.48-35.85,31.34-35.86,17.02-.01,31.28,16.13,31.31,35.46Z"/>
-          </svg>
-          <span class="logo-stamp-caption">SR VETERINARIA</span>
-        </div>
+    <header class="hero-top-showcase">
 
-        <!-- Foto de presentación de Sofía (srvet.webp subida a GitHub) -->
-        <div class="doctor-avatar-frame">
-          <img src="./srvet.webp" alt="Sofía Rivera Veterinaria" class="doctor-avatar-img">
-          <div class="live-status-bubble" title="Horario: Lunes a Viernes de 9 a 18 h">
-            <span class="pulse-dot"></span>
-            <span>9 A 18 H</span>
-          </div>
-        </div>
+      <!-- Logo S.R. grande y suelto arriba de todo, directo sobre el fondo azul -->
+      <div class="logo-free-stage" onclick="playTouchHaptic()" title="Sofía Rivera Veterinaria">
+        <svg class="brand-logo-svg" viewBox="0 0 655.17 384.81" xmlns="http://www.w3.org/2000/svg" aria-label="S.R. Veterinaria">
+          <g id="sr-logo-paths" fill="#FFFFFF">
+            <path d="M120.96,206.08c-3.8-1.66-7.16-3.1-10.51-4.6-14.64-6.54-28.42-14.86-40.56-26.36-13.7-12.96-24.33-28.4-29.38-48.22-4.05-15.9-2.54-31.41,3-46.44,8.14-22.09,21.93-38.63,39.74-50.99,19.45-13.5,40.71-21.18,63.04-25.46C158.84,1.62,171.48.24,184.21.03c26.8-.44,52.97,3.22,77.68,15.95,10.93,5.63,20.92,12.88,28.6,23.64,6.91,9.68,11.29,20.52,10.88,33.29-.56,17.26-7.74,30.07-20.66,38.75-9.17,6.17-19.31,9.05-29.74,10.89-13.95,2.47-28,1.89-42.03,1.98-2.28.01-4.55,0-6.89.26,4.65,1.72,9.32,3.39,13.96,5.17,20.1,7.71,39.16,17.67,55.19,33.95,16.63,16.89,25.28,37.87,24.24,63.47-.57,14.15-4.18,27.57-8.96,40.56-11.88,32.29-29.67,59.49-54.33,80.56-19.72,16.85-42.11,26.76-66.18,32.03-17.69,3.88-35.57,5.11-53.53,3.74-21.7-1.65-42.84-6.3-62.83-16.47-15.76-8.02-29.49-19.01-39.25-35.62-14.39-24.48-13.7-53.7,1.72-77.39,8.89-13.66,20.71-23.02,34.04-30.13,12.85-6.86,26.35-11.44,40.35-13.86,10.5-1.82,21.09-2.94,31.64-4.37.81-.11,1.62-.2,2.87-.35Z"/>
+            <path d="M483.3,206.22c4.67.71,9.34,1.38,14,2.13,27.1,4.37,53.65,11.29,79.17,22.79,17.46,7.87,33.98,17.67,48.64,31.2,8.86,8.18,16.74,17.41,22.49,28.74,11.34,22.31,9.71,44.1-3.28,64.55-12.49,19.68-30,29.31-51.29,29.04-13.15-.16-25.34-5.18-36.96-12-15.23-8.95-28.39-21.09-40.47-34.75-10.36-11.71-20.38-23.81-30.56-35.72-2.94-3.45-5.93-6.85-9.27-9.96,1.48,4.64,3.02,9.27,4.45,13.94,3.48,11.36,5.78,22.97,5.13,35.1-.59,11.01-3.47,21.21-9.66,29.77-8.35,11.57-19.44,15.06-32.18,13.09-22.86-3.53-40.89-16.74-55.77-36.17-12.66-16.53-22.45-35.15-30.57-54.97-6.54-15.97-11.86-32.42-15.24-49.64-2.38-12.16-3.84-24.47-3.47-36.96.46-15.37,3.36-30.26,7.32-44.9,7.94-29.39,20.2-56.36,35.56-81.53,11.37-18.64,24.65-35.3,40.56-49.11,18.6-16.15,39.21-27.09,62.61-29.97,25.57-3.16,49.27,2.77,69.82,21.21,13.8,12.38,21.91,28.74,24.87,48.43,2.91,19.32-.38,37.62-7.27,55.24-9.06,23.16-23.55,41.03-41.78,55.22-13.67,10.64-28.76,17.82-44.37,23.72-.85.32-1.69.68-2.53,1.02l.04.48Z"/>
+            <path d="M352.36,345.54c.03,19.18-14.24,35.06-31.53,35.08-16.56.02-31.03-16.11-31.12-34.68-.09-19.17,14.48-35.85,31.34-35.86,17.02-.01,31.28,16.13,31.31,35.46Z"/>
+          </g>
+        </svg>
 
+        <!-- Reflejo sutil en cristal debajo del logo -->
+        <svg class="logo-glass-reflection" viewBox="0 0 655.17 384.81" preserveAspectRatio="xMidYMin slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <use href="#sr-logo-paths"/>
+        </svg>
       </div>
 
-      <!-- Título de Identidad -->
-      <div class="hero-identity-block">
-        <h1 class="hero-name-title">Sofía Rivera</h1>
-        <div class="hero-specialty-subtitle">Veterinaria a Domicilio</div>
-
-        <div class="credentials-pills-row">
-          <span class="cred-badge">U.B.A. 2017</span>
-          <span class="cred-badge">M.P. 14008</span>
-          <span class="cred-badge gold">USAL Felina</span>
-          <span class="cred-badge">UMAI Ecografía</span>
-          <span class="cred-badge">Docente UCES</span>
+      <!-- Foto estética de Sofía debajo del logo, centrada y simétrica -->
+      <div class="doctor-portrait-stage">
+        <div class="doctor-portrait-ring">
+          <img src="./srvet.webp" alt="Sofía Rivera Veterinaria" class="doctor-avatar-img">
         </div>
+        <div class="live-status-bubble" title="Horario: Lunes a Viernes de 9 a 18 h">
+          <span class="pulse-dot"></span>
+          <span>9 A 18 H</span>
+        </div>
+      </div>
 
-        <div class="milkshake-welcome-slab">
-          <span class="milkshake-heading">¡Hola! Gracias por llegar hasta acá 🥰</span>
-          <span class="milkshake-sub">Te dejo algunos links importantes:</span>
+      <!-- Primer recuadro blanco acotado y armónico -->
+      <div class="hero-identity-card">
+        <div class="hero-identity-block">
+          <h1 class="hero-name-title">Sofía Rivera</h1>
+          <div class="hero-specialty-subtitle">Veterinaria a Domicilio</div>
+
+          <div class="credentials-pills-row">
+            <span class="cred-badge">U.B.A. 2017</span>
+            <span class="cred-badge">M.P. 14008</span>
+            <span class="cred-badge gold">USAL Felina</span>
+            <span class="cred-badge">UMAI Ecografía</span>
+            <span class="cred-badge">Docente UCES</span>
+          </div>
+
+          <div class="milkshake-welcome-slab">
+            <span class="milkshake-heading">¡Hola! Gracias por llegar hasta acá 🥰</span>
+            <span class="milkshake-sub">Te dejo algunos links importantes:</span>
+          </div>
         </div>
       </div>
 
@@ -1058,7 +1224,7 @@
       href="https://wa.me/5491173648009?text=%C2%A1Hola%20Sof%C3%ADa!%20Te%20escribo%20para%20solicitar%20un%20turno%20a%20domicilio%20en%20Moreno.%20Mis%20calles%20de%20referencia%20son:%20....%20y%20el%20motivo%20de%20consulta%20es:%20...." 
       target="_blank" 
       rel="noopener noreferrer" 
-      class="btn-hero-whatsapp"
+      class="btn-hero-whatsapp reveal-block"
       onclick="playTouchHaptic()"
     >
       <div class="hero-wa-info">
@@ -1075,9 +1241,9 @@
 
 
     <!-- ==========================================================================
-         3. CONDICIONES & HORARIOS (TEXTOS EXACTOS DE SOFÍA)
+         3. CONDICIONES & HORARIOS
          ========================================================================== -->
-    <section class="conditions-card">
+    <section class="conditions-card reveal-block">
       <div class="conditions-head">
         <span class="conditions-title">
           <span>📋</span>
@@ -1096,7 +1262,6 @@
         <span>Atiendo <strong>ÚNICAMENTE</strong> a domicilio en algunas zonas de Moreno.</span>
       </div>
 
-      <!-- AVISO ESTRICTO DE NO URGENCIAS / NO CIRUGÍAS -->
       <div class="urgent-notice-box">
         <div class="urgent-line">
           <span>❌</span>
@@ -1116,23 +1281,22 @@
 
 
     <!-- ==========================================================================
-         4. SEPARADOR EDITORIAL CON FOTO REAL (portadasr.webp)
+         4. PORTADA LIMPIA (portadasr.webp) SIN TEXTO ENCIMA + EPÍGRAFE SUTIL ABAJO
          ========================================================================== -->
-    <article class="editorial-break-card">
-      <img src="./portadasr.webp" alt="Sofía Rivera Veterinaria en Atención" class="editorial-bg-image">
-      <div class="editorial-gradient-overlay"></div>
-      <div class="editorial-card-content">
-        <span class="editorial-pill-tag">Medicina Veterinaria</span>
-        <h3 class="editorial-quote-title">"Cada paciente es único y su atención es 100% focalizada a su situación y entorno."</h3>
-        <p class="editorial-quote-sub">Prevención, bienestar y cuidados de perros y gatos en su propio hogar.</p>
+    <figure class="editorial-photo-card reveal-block">
+      <div class="editorial-photo-frame">
+        <img src="./portadasr.webp" alt="Sofía Rivera Veterinaria en Atención" class="editorial-bg-image">
       </div>
-    </article>
+      <figcaption class="editorial-epigraph-bar">
+        <p class="editorial-epigraph-text">“Cada paciente es único · Prevención, bienestar y cuidados en su propio hogar.”</p>
+      </figcaption>
+    </figure>
 
 
     <!-- ==========================================================================
-         5. PILARES DE SU TRABAJO (TEXTOS LITERALES DE SU INSTAGRAM)
+         5. PILARES DE SU TRABAJO
          ========================================================================== -->
-    <section class="philosophy-card">
+    <section class="philosophy-card reveal-block">
       <div class="philosophy-title">Los puntos claves en mi trabajo son:</div>
       <div class="philosophy-list">
         <div class="philosophy-item">
@@ -1156,11 +1320,11 @@
 
 
     <!-- ==========================================================================
-         6. ENLACES PRINCIPALES (RESEÑAS, MILKSHAKE, PODCAST, CAFECITO)
+         6. ENLACES PRINCIPALES
          ========================================================================== -->
-    <nav class="actions-stack" aria-label="Enlaces importantes">
+    <nav class="actions-stack reveal-block" aria-label="Enlaces importantes">
 
-      <!-- RESEÑAS DE GOOGLE (5.0 ★ · 121 OPINIONES) -->
+      <!-- RESEÑAS DE GOOGLE -->
       <div class="editorial-btn-card btn-card-google" onclick="openReviewsModal(); playTouchHaptic();">
         <div class="btn-icon-frame">⭐</div>
         <div class="btn-text-meta">
@@ -1170,7 +1334,7 @@
         <span class="btn-nav-arrow">➔</span>
       </div>
 
-      <!-- CAPÍTULO PODCAST INFLUVETES (SPOTIFY OFICIAL) -->
+      <!-- CAPÍTULO PODCAST INFLUVETES -->
       <a 
         href="https://open.spotify.com/episode/50un35Me0Kt6k8mgZDnjIZ?si=AOqa7k1IQaOnviqgRIjeVQ&dl_branch=1&nd=1&dlsi=2184813ad1b14a8f" 
         target="_blank" 
@@ -1234,7 +1398,7 @@
         <span class="btn-nav-arrow">➔</span>
       </a>
 
-      <!-- ¿ME INVITAS UN CAFECITO? (CAFECITO APP OFICIAL) -->
+      <!-- ¿ME INVITAS UN CAFECITO? -->
       <a 
         href="https://cafecito.app/srveterinaria" 
         target="_blank" 
@@ -1254,44 +1418,40 @@
 
 
     <!-- ==========================================================================
-         7. REDES SOCIALES OFICIALES (INSTAGRAM, FACEBOOK, EMAIL)
+         7. REDES SOCIALES OFICIALES
          ========================================================================== -->
-    <footer class="social-dock-bar">
-      <!-- Instagram -->
+    <footer class="social-dock-bar reveal-block">
       <a href="https://instagram.com/srveterinaria" target="_blank" rel="noopener noreferrer" class="social-pill-btn" aria-label="Instagram @srveterinaria" onclick="playTouchHaptic()">
         <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
       </a>
-      
-      <!-- Facebook -->
+
       <a href="https://facebook.com/srveterinaria" target="_blank" rel="noopener noreferrer" class="social-pill-btn" aria-label="Facebook SR Veterinaria" onclick="playTouchHaptic()">
         <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
       </a>
 
-      <!-- Email Directo -->
       <a href="mailto:sofiariveraveterinaria@gmail.com" class="social-pill-btn" aria-label="Email de contacto" onclick="playTouchHaptic()">
         <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
       </a>
     </footer>
 
-    <!-- FOOTER INSTITUCIONAL -->
-    <div class="hub-footer-block">
+    <div class="hub-footer-block reveal-block">
       <div class="footer-stamp-chip">SOFÍA RIVERA · ATENCIÓN EXCLUSIVA A DOMICILIO</div>
       <div class="footer-credentials-tag">Moreno, Provincia de Buenos Aires · sofiariveraveterinaria@gmail.com</div>
     </div>
 
-  </div>
+  </main>
 
 
   <!-- ==========================================================================
-       MODAL VERIFICADO: RESEÑAS DE GOOGLE (SOLICITADO)
+       MODAL VERIFICADO: RESEÑAS DE GOOGLE
        ========================================================================== -->
   <div class="modal-backdrop-cover" id="reviewsModalBox" onclick="closeReviewsModal(event)">
     <div class="modal-review-card" onclick="event.stopPropagation()">
       <div class="modal-review-header">
         <h3>Opiniones de Clientes</h3>
-        <button class="btn-close-circle" onclick="closeReviewsModal(event)">✕</button>
+        <button class="btn-close-circle" onclick="closeReviewsModal(event)" aria-label="Cerrar opiniones">✕</button>
       </div>
-      
+
       <div class="modal-review-body">
         <div class="google-official-badge">
           <div>
@@ -1304,17 +1464,17 @@
         </div>
 
         <div class="client-comment-pill">
-          <div class="comment-user">Mariana G. ⭐★★★★</div>
+          <div class="comment-user">Mariana G. <span style="color:#F59E0B;">★★★★★</span></div>
           <p class="comment-quote">"Sofi es un amor con los animales. Vino a casa a atender a mi gata que se estresa mucho al salir, y la revisó con una paciencia y dedicación única. Super recomendable."</p>
         </div>
 
         <div class="client-comment-pill">
-          <div class="comment-user">Carlos D. ⭐★★★★</div>
+          <div class="comment-user">Carlos D. <span style="color:#F59E0B;">★★★★★</span></div>
           <p class="comment-quote">"Excelente profesional. Muy clara para explicar todo, puntual y cariñosa con nuestros dos perros. Un alivio contar con atención veterinaria en casa."</p>
         </div>
 
         <div class="client-comment-pill">
-          <div class="comment-user">Valeria M. ⭐★★★★</div>
+          <div class="comment-user">Valeria M. <span style="color:#F59E0B;">★★★★★</span></div>
           <p class="comment-quote">"Genia total Sofi. Hizo la ecografía de control con orden de derivación y se tomó todo el tiempo para que mi perra estuviera tranquila y sin miedo."</p>
         </div>
 
@@ -1338,7 +1498,7 @@
 
   <!-- ==========================================================================
        CONTROLADORES JAVASCRIPT & PARTÍCULAS AMBIENTALES
-       ========================================================================== */
+       ========================================================================== -->
   <script>
     // 1. Vibración háptica suave para móviles
     function playTouchHaptic() {
@@ -1359,15 +1519,20 @@
       if (e) e.stopPropagation();
       if (modalBox) {
         modalBox.classList.remove('active');
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = '';
       }
     }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalBox && modalBox.classList.contains('active')) {
+        closeReviewsModal();
+      }
+    });
 
     // 3. Comprobación en vivo de horarios (Lunes a Viernes de 9 a 18 h - UTC-3 Argentina)
     function updateScheduleBadge() {
       const now = new Date();
       const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-      const argTime = new Date(utc - (3600000 * 3)); // Hora oficial Argentina
+      const argTime = new Date(utc - (3600000 * 3));
       const day = argTime.getDay();
       const hours = argTime.getHours();
       const pill = document.getElementById('schedulePillElement');
@@ -1387,7 +1552,27 @@
     updateScheduleBadge();
     setInterval(updateScheduleBadge, 60000);
 
-    // 4. Canvas de polvo luminoso ambiental de nivel Awwwards (sustituye las animaciones infantiles)
+    // 4. Aparición escalonada al scrollear (Scroll Reveal)
+    const revealItems = document.querySelectorAll('.reveal-block');
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+
+      revealItems.forEach((el, idx) => {
+        el.style.transitionDelay = `${Math.min(idx * 60, 240)}ms`;
+        revealObserver.observe(el);
+      });
+    } else {
+      revealItems.forEach(el => el.classList.add('is-visible'));
+    }
+
+    // 5. Canvas de polvo luminoso ambiental
     const dustCanvas = document.getElementById('ambientDustCanvas');
     const dustCtx = dustCanvas.getContext('2d');
     let cWidth, cHeight;
@@ -1400,13 +1585,12 @@
     resizeDust();
 
     const particles = [];
-    for (let i = 0; i < 35; i++) {
+    for (let i = 0; i < 36; i++) {
       particles.push({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
-        r: Math.random() * 2.5 + 0.8,
-        vy: -(Math.random() * 0.35 + 0.12),
-        vx: (Math.random() - 0.5) * 0.2,
+        r: Math.random() * 2.4 + 0.8,
+        vy: -(Math.random() * 0.36 + 0.14),
         alpha: Math.random() * 0.45 + 0.15,
         theta: Math.random() * Math.PI * 2
       });
@@ -1433,9 +1617,9 @@
     }
     renderDust();
 
-    // 5. Física de cursor magnético sutil para desktop
+    // 6. Física de cursor magnético sutil para desktop (patrón unificado de tus desarrollos)
     if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      document.querySelectorAll('.btn-hero-whatsapp, .editorial-btn-card, .logo-monument-frame').forEach(card => {
+      document.querySelectorAll('.btn-hero-whatsapp, .editorial-btn-card, .social-pill-btn').forEach(card => {
         card.addEventListener('mousemove', (e) => {
           const rect = card.getBoundingClientRect();
           const x = e.clientX - rect.left - rect.width / 2;
